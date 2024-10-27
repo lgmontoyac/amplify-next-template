@@ -1,0 +1,24 @@
+.wrapper {
+    display: inline-flex; 
+    width: auto; 
+    background: white;
+    padding: 18px 60px;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: var(--amplify-radii-xxl);
+  }
+  
+  .separator {
+    width: 1px; 
+    background-color: #58595B; 
+    margin: 0 60px; 
+    height: 100%;
+    min-height: 60px;
+  }
+  
+  .searchIcon {
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+  }
+  

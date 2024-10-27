@@ -7,11 +7,54 @@ specifies that any user authenticated via an API key can "create", "read",
 "update", and "delete" any "Todo" records.
 =========================================================================*/
 const schema = a.schema({
-  Todo: a
+  Vehicle: a
     .model({
-      content: a.string(),
+      id: a.id().required(),
+      segment: a.enum([
+        'Automovil',
+        'Camioneta',
+        'Pickup',
+        'TGR'
+      ]),
+      name: a.string().required(),
+      fuelType: a.string().required(),
+      models: a.hasMany("VehicleModel", "vehicleId"),
     })
-    .authorization((allow) => [allow.publicApiKey()]),
+    .secondaryIndexes((index) => [index("name")])
+    .identifier(["id"])
+    .authorization(allow => [allow.publicApiKey()])
+  ,
+  VehicleModel: a
+    .model({
+      id: a.id().required(),
+      vehicleId: a.id(),
+      vehicle: a.belongsTo("Vehicle", "vehicleId"),
+      name: a.string().required(),
+      fuelType: a.string().required(),
+      engine: a.string().required(),
+      gears: a.string().required(),
+      doors: a.integer().required(),
+      passengers: a.integer().required(),
+      warranty: a.string().required(),
+      datasheetURL: a.string().required(),
+      colors: a.hasMany("VehicleColor", "modelId"),
+    })
+    .secondaryIndexes((index) => [index("name")])
+    .identifier(["id"])
+    .authorization(allow => [allow.publicApiKey()])
+  ,
+  VehicleColor: a
+    .model({
+      id: a.id().required(),
+      modelId: a.id(),
+      model: a.belongsTo("VehicleModel", "modelId"),
+      name: a.string().required(),
+      iconPath: a.string().required(),
+      imagePath: a.string().required(),
+    })
+    .identifier(["id"])
+    .authorization((allow) => [allow.publicApiKey()])
+  ,
 });
 
 export type Schema = ClientSchema<typeof schema>;
@@ -31,7 +74,7 @@ Go to your frontend source code. From your client-side code, generate a
 Data client to make CRUDL requests to your table. (THIS SNIPPET WILL ONLY
 WORK IN THE FRONTEND CODE FILE.)
 
-Using JavaScript or Next.js React Server Components, Middleware, Server 
+Using JavaScript or Next.js React Server Components, Middleware, Server
 Actions or Pages Router? Review how to generate Data clients for those use
 cases: https://docs.amplify.aws/gen2/build-a-backend/data/connect-to-API/
 =========================================================================*/

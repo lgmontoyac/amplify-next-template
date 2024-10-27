@@ -1,0 +1,22 @@
+.wrapper {
+    display: inline-flex; 
+    width: auto; 
+    background: linear-gradient(90deg, #E7EDF1, #F4F7F9);
+    justify-content: space-between;
+    align-items: center;
+    border-radius: var(--amplify-radii-xxl);
+  }
+  
+  .separator {
+    width: 1px; 
+    background-color: #58595B; 
+    height: 90%;
+    min-height: 60px;
+  }
+  
+  .searchIcon {
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+  }
+  
