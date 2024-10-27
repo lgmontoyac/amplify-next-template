@@ -11,7 +11,7 @@ const schema = a.schema({
     .model({
       id: a.id().required(),
       segment: a.enum([
-        'Automóvil',
+        'Autom\u00F3vil',
         'Camioneta',
         'Pickup',
         'TGR'
