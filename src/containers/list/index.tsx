@@ -3,14 +3,10 @@
 import { CarList } from "@/components/CarList/CarList";
 import { CategorySearchBar } from "@/components/CategorySearchBar/CategorySearchBar";
 import { useVehicles } from "@/context/VehiclesProvider";
-import { Vehicle } from "@/types";
 import { Flex, Image, Text, View } from "@aws-amplify/ui-react";
 
-interface ListContainerProps {
-  vehicles: Vehicle[];
-}
-
-export default function ListContainer({ vehicles }: ListContainerProps) {
+export default function ListContainer() {
+  const { vehicles } = useVehicles();
   return (
     <View paddingTop="80px" paddingBottom="115px">
       <Flex direction="column" alignItems="center">

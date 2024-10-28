@@ -1,26 +1,23 @@
 version: 1
-frontend:
+backend:
   phases:
-    preBuild:
-      commands:
-        - sudo fallocate -l 40G /swapfile
-        - sudo chmod 600 /swapfile
-        - sudo mkswap /swapfile
-        - sudo swapon /swapfile
-        - sudo swapon -s
-        - npm i --cache .npm --prefer-offline
     build:
       commands:
-        - export GENERATE_SOURCEMAP=false
-        - export INLINE_RUNTIME_CHUNK=false
-        - export CI=false
-        - export REACT_APP_MINIMIZE=true
-        - npm run build --max-workers=2
+        - npm install --build-from-source esbuild
+        - npm install --build-from-source @parcel/watcher
+        - npm i --cache .npm --prefer-offline
+        - npx ampx pipeline-deploy --branch $AWS_BRANCH --app-id $AWS_APP_ID
+frontend:
+  phases:
+    build:
+      commands:
+        - npm run build
   artifacts:
     baseDirectory: .next
     files:
       - '**/*'
   cache:
     paths:
+      - .next/cache/**/*
       - .npm/**/*
       - node_modules/**/*
