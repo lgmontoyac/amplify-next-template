@@ -9,6 +9,7 @@ frontend:
         - sudo mkswap /swapfile
         - sudo swapon /swapfile
         - sudo swapon -s
+        - npm i --cache .npm --prefer-offline
     build:
       commands:
         - export GENERATE_SOURCEMAP=false
