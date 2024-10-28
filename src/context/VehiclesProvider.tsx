@@ -25,6 +25,7 @@ import {
 
 interface VehicleContextType {
   vehicles: Vehicle[];
+  vehicleIds: number[];
   specifications: Specification[];
   featureList: Feature[];
   colorLists: ColorOption[];
@@ -35,22 +36,22 @@ interface VehicleContextType {
 }
 
 const VehicleContext = createContext<VehicleContextType | undefined>(undefined);
-
 export function VehicleProvider({ children }: { children: ReactNode }) {
   const [vehicles, setVehicles] = useState<Vehicle[]>([]);
+  const [vehicleIds, setVehicleIds] = useState<number[]>([]); // Nuevo estado para las IDs de vehículos
   const [specifications, setSpecifications] = useState<Specification[]>([]);
   const [featureList, setFeatureList] = useState<Feature[]>([]);
   const [colorLists, setColorLists] = useState<ColorOption[]>([]);
 
-  // Cargar datos offline desde IndexedDB
   const loadOfflineData = async () => {
-    setVehicles(await getVehiclesFromDB());
+    const offlineVehicles = await getVehiclesFromDB();
+    setVehicles(offlineVehicles);
+    setVehicleIds(offlineVehicles.map((vehicle) => vehicle.id)); // Extrae y guarda solo las IDs
     setSpecifications(await getSpecificationsFromDB());
     setFeatureList(await getFeatureListFromDB());
     setColorLists(await getColorListFromDB());
   };
 
-  // Sincronizar con API y actualizar IndexedDB si hay conexión
   const syncWithAPI = async () => {
     try {
       if (!navigator.onLine) return;
@@ -74,24 +75,26 @@ export function VehicleProvider({ children }: { children: ReactNode }) {
         addColorListToDB(colorsFromAPI),
       ]);
 
-      setVehicles(await getVehiclesFromDB());
-      setSpecifications(await getSpecificationsFromDB());
-      setFeatureList(await getFeatureListFromDB());
-      setColorLists(await getColorListFromDB());
+      setVehicles(vehiclesFromAPI);
+      setVehicleIds(vehiclesFromAPI.map((vehicle) => vehicle.id)); // Actualiza las IDs en el cache
+      setSpecifications(specificationsFromAPI);
+      setFeatureList(featuresFromAPI);
+      setColorLists(colorsFromAPI);
     } catch (error) {
       console.error("Failed to sync with API:", error);
     }
   };
 
   useEffect(() => {
-    loadOfflineData(); // Carga los datos almacenados localmente
-    syncWithAPI(); // Luego intenta sincronizar con la API
+    loadOfflineData();
+    syncWithAPI();
   }, []);
 
   return (
     <VehicleContext.Provider
       value={{
         vehicles,
+        vehicleIds, // Incluye las IDs en el contexto
         specifications,
         featureList,
         colorLists,

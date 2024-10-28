@@ -40,10 +40,6 @@ export default function DetailContainer({ vehicleId }: { vehicleId: string }) {
     featureList.length === 0 ||
     colorLists.length === 0
   ) {
-    console.log(vehicles);
-    console.log(specifications);
-    console.log(featureList);
-    console.log(colorLists);
     return (
       <View height="100%">
         <Text>No hay vehículos para mostrar</Text>

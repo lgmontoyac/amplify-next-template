@@ -230,3 +230,7 @@ export async function getColorList(): Promise<ColorOption[]> {
   return response.json();*/
   return new Promise((resolve) => setTimeout(() => resolve(colorLists), 500));
 }
+export async function getVehicleIds() {
+  const vehicles = await getVehicles();
+  return vehicles.map((vehicle) => vehicle.id);
+}

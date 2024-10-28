@@ -9,18 +9,11 @@ import { ThemeProvider } from "@aws-amplify/ui-react";
 import ToyotaTotemTheme from "@/theme";
 import { VehicleProvider } from "@/context/VehiclesProvider";
 
-import { useEffect } from "react";
-
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  useEffect(() => {
-    if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.register("/sw.js");
-    }
-  }, []);
   return (
     <html
       lang="en"

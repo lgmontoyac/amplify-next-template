@@ -10,14 +10,16 @@ const schema = a.schema({
   Vehicle: a
     .model({
       id: a.id().required(),
-      segment: a.enum([
-        'Autom\u00F3vil',
-        'Camioneta',
-        'Pickup',
-        'TGR'
-      ]),
       name: a.string().required(),
+      segment: a.string().required(),
       fuelType: a.string().required(),
+      datasheetURL: a.string(),
+      minimumPrice: a.integer(),
+      engine: a.string(),
+      gears: a.string(),
+      doors: a.integer(),
+      passengers: a.integer(),
+      warranty: a.string(),
       models: a.hasMany("VehicleModel", "vehicleId"),
     })
     .secondaryIndexes((index) => [index("name")])
@@ -27,17 +29,17 @@ const schema = a.schema({
   VehicleModel: a
     .model({
       id: a.id().required(),
-      vehicleId: a.id(),
+      vehicleId: a.id().required(),
       vehicle: a.belongsTo("Vehicle", "vehicleId"),
       name: a.string().required(),
-      fuelType: a.string().required(),
-      engine: a.string().required(),
-      gears: a.string().required(),
-      doors: a.integer().required(),
-      passengers: a.integer().required(),
-      warranty: a.string().required(),
-      datasheetURL: a.string().required(),
+      price: a.integer(),
+      hasAntilockBrakeSystem: a.boolean(),
+      hasElectronicStabilityControl: a.boolean(),
+      hasFrontCollisionAlert: a.boolean(),
+      hasChildRestraintSystem: a.boolean(),
+      airbagsAmount: a.integer(),
       colors: a.hasMany("VehicleColor", "modelId"),
+      galleryPictures: a.hasMany("VehicleGalleryPicture", "modelId"),
     })
     .secondaryIndexes((index) => [index("name")])
     .identifier(["id"])
@@ -46,11 +48,22 @@ const schema = a.schema({
   VehicleColor: a
     .model({
       id: a.id().required(),
-      modelId: a.id(),
+      modelId: a.id().required(),
       model: a.belongsTo("VehicleModel", "modelId"),
       name: a.string().required(),
-      iconPath: a.string().required(),
-      imagePath: a.string().required(),
+      iconPath: a.string(),
+      imagePath: a.string(),
+    })
+    .identifier(["id"])
+    .authorization((allow) => [allow.publicApiKey()])
+  ,
+  VehicleGalleryPicture: a
+    .model({
+      id: a.id().required(),
+      modelId: a.id().required(),
+      model: a.belongsTo("VehicleModel", "modelId"),
+      imagePath: a.string(),
+      coverText: a.string(),
     })
     .identifier(["id"])
     .authorization((allow) => [allow.publicApiKey()])
@@ -68,32 +81,3 @@ export const data = defineData({
     },
   },
 });
-
-/*== STEP 2 ===============================================================
-Go to your frontend source code. From your client-side code, generate a
-Data client to make CRUDL requests to your table. (THIS SNIPPET WILL ONLY
-WORK IN THE FRONTEND CODE FILE.)
-
-Using JavaScript or Next.js React Server Components, Middleware, Server
-Actions or Pages Router? Review how to generate Data clients for those use
-cases: https://docs.amplify.aws/gen2/build-a-backend/data/connect-to-API/
-=========================================================================*/
-
-/*
-"use client"
-import { generateClient } from "aws-amplify/data";
-import type { Schema } from "@/amplify/data/resource";
-
-const client = generateClient<Schema>() // use this Data client for CRUDL requests
-*/
-
-/*== STEP 3 ===============================================================
-Fetch records from the database and use them in your frontend component.
-(THIS SNIPPET WILL ONLY WORK IN THE FRONTEND CODE FILE.)
-=========================================================================*/
-
-/* For example, in a React component, you can use this snippet in your
-  function's RETURN statement */
-// const { data: todos } = await client.models.Todo.list()
-
-// return <ul>{todos.map(todo => <li key={todo.id}>{todo.content}</li>)}</ul>

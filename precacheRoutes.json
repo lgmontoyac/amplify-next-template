@@ -1,0 +1,250 @@
+[
+  {
+    "url": "/",
+    "revision": "16070b31-8850-4924-b59f-6d526d869c6b"
+  },
+  {
+    "url": "/list",
+    "revision": "c0090ed9-7927-4e49-a289-985b7fff00dc"
+  },
+  {
+    "url": "/detail/1",
+    "revision": "53c564ca-5ba8-4cd5-806d-fc986c56d9b1"
+  },
+  {
+    "url": "/detail/2",
+    "revision": "996917d5-6695-4615-b1d0-325bafa1fe36"
+  },
+  {
+    "url": "/detail/3",
+    "revision": "f6d5726b-8ee7-4c6d-99ea-32a6dad510da"
+  },
+  {
+    "url": "/detail/4",
+    "revision": "5d02d0c4-df6f-42b7-9676-01f1c2302743"
+  },
+  {
+    "url": "/detail/5",
+    "revision": "66e2b121-bd9c-4225-90aa-1e091fe4f8dc"
+  },
+  {
+    "url": "/detail/6",
+    "revision": "b56f5d1e-4cb3-437e-987f-3796611b65d1"
+  },
+  {
+    "url": "/detail/7",
+    "revision": "b169f343-64c4-4b8b-bb8b-dc5ef5c11eae"
+  },
+  {
+    "url": "/detail/8",
+    "revision": "6e3626b0-0395-4c0d-b93c-76475699216f"
+  },
+  {
+    "url": "/assets/colors/black.svg",
+    "revision": "8192ef16-bbcc-403e-a18a-426c6cb7ea8f"
+  },
+  {
+    "url": "/assets/colors/gray.svg",
+    "revision": "19920c07-b1a8-4904-a254-d837e9cb8621"
+  },
+  {
+    "url": "/assets/colors/selected.svg",
+    "revision": "ff4a9d78-3ebe-47cd-b596-63a781eda40a"
+  },
+  {
+    "url": "/assets/colors/white.svg",
+    "revision": "91333066-a99a-4a5e-98e8-cf4dc963aa35"
+  },
+  {
+    "url": "/assets/icons/icon_ABS_aro.svg",
+    "revision": "43379b99-453e-47c3-b766-4ff3362b66f9"
+  },
+  {
+    "url": "/assets/icons/icon_airbags.svg",
+    "revision": "aa590911-01bd-4650-b380-4452b72676c3"
+  },
+  {
+    "url": "/assets/icons/icon_alerta.svg",
+    "revision": "6e872967-6c8b-4b2f-ba02-f58505c3b933"
+  },
+  {
+    "url": "/assets/icons/icon_arrow.svg",
+    "revision": "c878d9e8-39e4-4e25-b52b-0938f84e0d4f"
+  },
+  {
+    "url": "/assets/icons/icon_close.svg",
+    "revision": "a99a1d64-39e7-4de1-9123-cb55e558976e"
+  },
+  {
+    "url": "/assets/icons/icon_contain.svg",
+    "revision": "cf195e35-436a-4bff-a88c-d18f229402b3"
+  },
+  {
+    "url": "/assets/icons/icon_control_estabilidad.svg",
+    "revision": "3cfbeb0b-eb8f-48a2-bdba-82fa56416299"
+  },
+  {
+    "url": "/assets/icons/icon_garantia.svg",
+    "revision": "5819c2bc-ee9f-4486-927a-9a57f632b640"
+  },
+  {
+    "url": "/assets/icons/icon_isofix.svg",
+    "revision": "830c07d3-a243-4dd3-8b33-ed6cb9c12c98"
+  },
+  {
+    "url": "/assets/icons/icon_motor.svg",
+    "revision": "44394360-2016-4a3e-b770-5544c9d80df9"
+  },
+  {
+    "url": "/assets/icons/icon_no_contain.svg",
+    "revision": "f4d1f212-a21a-4422-a4a8-b604e256dace"
+  },
+  {
+    "url": "/assets/icons/icon_pasajeros.svg",
+    "revision": "a320da5f-5d50-4202-99a7-ea15693ff566"
+  },
+  {
+    "url": "/assets/icons/icon_puertas.svg",
+    "revision": "971566b4-a014-4567-bc49-d93265f1c394"
+  },
+  {
+    "url": "/assets/icons/icon_velocidades.svg",
+    "revision": "e5aef6cc-565c-4fb0-a450-5c5eb55d7bc7"
+  },
+  {
+    "url": "/assets/images/logo.svg",
+    "revision": "3a3208b5-9650-47e0-954e-32646a17b6e4"
+  },
+  {
+    "url": "/assets/images/site_logo.svg",
+    "revision": "9b82633a-587a-4570-a6ac-0628a19c0ed9"
+  },
+  {
+    "url": "/assets/logo_Toyota.png",
+    "revision": "817e0127-4bec-4973-9fd8-0460db6b425b"
+  },
+  {
+    "url": "/assets/video/prado-reel.mp4",
+    "revision": "43b0c284-c90e-453d-8072-d2c3c8531f02"
+  },
+  {
+    "url": "/fonts/ToyotaDisplay.ttf",
+    "revision": "f4364587-87c8-4f5e-87f2-97bf17cfd300"
+  },
+  {
+    "url": "/fonts/ToyotaDisplay_He.ttf",
+    "revision": "e3ffe315-0336-4c76-8735-6b85a61c8043"
+  },
+  {
+    "url": "/fonts/ToyotaDisplay_Rg.ttf",
+    "revision": "36cd5883-ccb7-422e-b6e6-770679565500"
+  },
+  {
+    "url": "/fonts/ToyotaText_BdIt.ttf",
+    "revision": "a3c34b8d-d164-4949-af52-5d3d646e3b21"
+  },
+  {
+    "url": "/fonts/ToyotaText_Bold.ttf",
+    "revision": "afabe683-50a0-4829-8fc4-b3f081a784cb"
+  },
+  {
+    "url": "/fonts/ToyotaText_It.ttf",
+    "revision": "f9f8572c-77c2-492f-a24d-2b9fb7931889"
+  },
+  {
+    "url": "/fonts/ToyotaText_Rg.ttf",
+    "revision": "1a55b8ab-d7c3-4b0d-8321-2a01ce6ec467"
+  },
+  {
+    "url": "/fonts/ToyotaType-Black.ttf",
+    "revision": "b2635bb5-4cb1-4d4d-a2de-3c9ec7733be4"
+  },
+  {
+    "url": "/fonts/ToyotaType-BlackIt.ttf",
+    "revision": "df6bd2cf-54e1-482d-9e04-8d3a239d3fb6"
+  },
+  {
+    "url": "/fonts/ToyotaType-Bold.ttf",
+    "revision": "35a09a5c-556e-4a7d-aba1-5846646a98d7"
+  },
+  {
+    "url": "/fonts/ToyotaType-BoldIt.ttf",
+    "revision": "cae611f3-7ad1-4250-831d-80dd018f4133"
+  },
+  {
+    "url": "/fonts/ToyotaType-Book.ttf",
+    "revision": "15d5a028-820f-46c1-9299-47059e6ca23b"
+  },
+  {
+    "url": "/fonts/ToyotaType-BookIt.ttf",
+    "revision": "5b62e519-0559-40d1-b82a-dba59386fed8"
+  },
+  {
+    "url": "/fonts/ToyotaType-Light.ttf",
+    "revision": "86adc783-ae64-4c11-b754-c61334997df8"
+  },
+  {
+    "url": "/fonts/ToyotaType-LightIt.ttf",
+    "revision": "0cce647f-8068-4704-b3b0-9aa3a9ee34e5"
+  },
+  {
+    "url": "/fonts/ToyotaType-Regular.ttf",
+    "revision": "f69f107e-78b7-4df5-814c-8d455d98588b"
+  },
+  {
+    "url": "/fonts/ToyotaType-RegularIt.ttf",
+    "revision": "ed2fcd3f-f671-4bc9-a23c-a4742e8d6603"
+  },
+  {
+    "url": "/fonts/ToyotaType-Semibold.ttf",
+    "revision": "3a750333-07e1-455e-a41c-4c1446be8c12"
+  },
+  {
+    "url": "/fonts/ToyotaType-SemiboldIt.ttf",
+    "revision": "c01a74d3-63d4-4f94-bc38-f272f72a07e6"
+  },
+  {
+    "url": "/icons/back.svg",
+    "revision": "975650af-c8c7-429b-ad20-a163dd2a5b55"
+  },
+  {
+    "url": "/icons/next.svg",
+    "revision": "68be563f-de7b-4cec-a72f-615321a49661"
+  },
+  {
+    "url": "/icons/search.svg",
+    "revision": "e2b32dea-fa29-4ce1-91ff-2bc7d247cd3f"
+  },
+  {
+    "url": "/icons/slidePrev.svg",
+    "revision": "0317292f-160a-43e9-a11a-b12e7facd2a6"
+  },
+  {
+    "url": "/images/1.jpg",
+    "revision": "f92df166-ad40-4e6c-97b6-897b77aab096"
+  },
+  {
+    "url": "/images/2.png",
+    "revision": "2f4bf93b-372b-4925-89cb-26656189c21b"
+  },
+  {
+    "url": "/images/3.png",
+    "revision": "ed75e470-e94e-4dcd-a262-265a12ac6934"
+  },
+  {
+    "url": "/images/4.jpg",
+    "revision": "403137d8-0d02-470a-9aac-5d01dbdbde3d"
+  },
+  {
+    "url": "/images/5.png",
+    "revision": "34efcbf9-dfda-4f79-93f1-9828d0fefa17"
+  },
+  {
+    "url": "/images/6.jpg",
+    "revision": "e89b44b4-3c47-4435-8974-d9dc6abb45aa"
+  },
+  {
+    "url": "/images/7.jpg",
+    "revision": "5df73f9a-734b-4e63-8c9f-f4e360ba701b"
+  }
+]
