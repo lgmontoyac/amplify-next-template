@@ -1,0 +1,21 @@
+.phoneInput {
+  position: relative;
+
+  &::before {
+    content: '';
+    background-image: url('/public/assets/icons/icon_flag_colombia.svg');
+    background-size: contain; 
+    background-repeat: no-repeat;
+    position: absolute;
+    transform: translateY(-50%);
+    width: 2rem; 
+    height: 2rem;
+  }
+
+  input {
+    padding-left: 40px; 
+  }
+}
+
+
+  

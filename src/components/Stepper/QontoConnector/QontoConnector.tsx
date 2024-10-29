@@ -3,16 +3,16 @@ import { styled } from '@mui/material/styles';
 
 
 export const QontoConnector = styled(StepConnector)(({ theme }) => ({
-  height: 3,
+  height: 2,
   marginRight: '30px',
   marginLeft: '35px',
-  marginTop: '0.5rem',
+  marginTop: '1rem',
   backgroundColor: '#E0E0E0',
   '&.Mui-active': {
-    backgroundColor: 'red', 
+    backgroundColor: '#D42224', 
   },
   '&.Mui-completed': {
-    backgroundColor: 'red', 
+    backgroundColor: '#D42224', 
   },
 }));
 

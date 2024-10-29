@@ -16,9 +16,11 @@ interface Step {
 interface StepperProps {
   steps: Step[];
   onStepChange: (stepIndex: number) => void;
+  onStepSendData: () => void;
+  onStepRedirect: () => void;
 }
 
-export default function Stepper({ steps, onStepChange }: StepperProps) {
+export default function Stepper({ steps, onStepChange, onStepSendData, onStepRedirect }: StepperProps) {
   const [activeStep, setActiveStep] = useState(0);
 
   const handleNext = () => {
@@ -80,13 +82,22 @@ export default function Stepper({ steps, onStepChange }: StepperProps) {
               style={{ width: "1rem" }}
             />
           </Button>
-          <Button
-            variation="primary"
-            onClick={handleNext}
-            disabled={activeStep === steps.length - 1}
+          <Button 
+            variation='primary' 
+            onClick={() => {
+              if (activeStep === 2) {
+                onStepSendData();
+                handleNext();
+              } else if (activeStep === 3) {
+                onStepRedirect();
+              } else {
+                handleNext();
+              }
+            }}
           >
-            Siguiente
+            {activeStep === 2 ? 'Enviar' : activeStep === 3 ? 'Ver más vehículos' : 'Siguiente'}
           </Button>
+
         </div>
       </div>
     </div>
