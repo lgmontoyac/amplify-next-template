@@ -1,6 +1,6 @@
 "use client";
 
-import { Button, Image, View, Flex } from '@aws-amplify/ui-react';
+import { Button, Image, View, Flex, Link } from '@aws-amplify/ui-react';
 
 export default function MainContainer() {
   return (
@@ -31,7 +31,7 @@ export default function MainContainer() {
         }}
       >
         <Image
-          src="/assets/Logo_Toyota.png"
+          src="/assets/logo_Toyota.png"
           alt="Logo Toyota"
           width="674px"
           height="477px"
@@ -40,15 +40,17 @@ export default function MainContainer() {
           }}
           className="responsive-img"
         />
-        <Button 
-          variation="primary"
-          display="inline-flex"
-          size="large"
-          padding="25px 69px"
-          fontSize="xl"
-        >
-          Conoce nuestros vehículos
-        </Button>
+        <Link href={`/list`}>
+          <Button
+            variation="primary"
+            display="inline-flex"
+            size="large"
+            padding="25px 69px"
+            fontSize="xl"
+          >
+            Conoce nuestros vehículos
+          </Button>
+        </Link>
       </Flex>
     </View>
   );
