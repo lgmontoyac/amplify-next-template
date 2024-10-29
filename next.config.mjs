@@ -3,15 +3,11 @@ import withSerwistInit from "@serwist/next";
 import fs from "fs";
 import path from "path";
 
-// Leer el archivo JSON con las rutas
 const precacheFilePath = path.join(process.cwd(), "precacheRoutes.json");
-let additionalPrecacheEntries = [];
 
-if (fs.existsSync(precacheFilePath)) {
-  additionalPrecacheEntries = JSON.parse(
-    fs.readFileSync(precacheFilePath, "utf-8")
-  );
-}
+const additionalPrecacheEntries = fs.existsSync(precacheFilePath)
+  ? JSON.parse(fs.readFileSync(precacheFilePath, "utf-8"))
+  : [];
 
 const withSerwist = withSerwistInit({
   cacheOnNavigation: true,
@@ -22,7 +18,18 @@ const withSerwist = withSerwistInit({
 
 /** @type {import("next").NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
+  reactStrictMode: process.env.NODE_ENV !== "production",
+  productionBrowserSourceMaps: false,
+  compress: true,
+  images: {
+    formats: ["image/avif", "image/webp"],
+  },
+  webpack: (config, { isServer }) => {
+    if (!isServer) {
+      config.optimization.minimize = true;
+    }
+    return config;
+  },
 };
 
 export default withSerwist(nextConfig);

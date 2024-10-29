@@ -5,10 +5,13 @@ backend:
       commands:
         - npm install --build-from-source esbuild
         - npm install --build-from-source @parcel/watcher
-        - npm i --cache .npm --prefer-offline
         - npx ampx pipeline-deploy --branch $AWS_BRANCH --app-id $AWS_APP_ID
 frontend:
   phases:
+    preBuild:
+        commands:
+          - export NODE_OPTIONS="--max-old-space-size=5120"
+          - npm ci --prefer-offline
     build:
       commands:
         - npm run build
@@ -16,8 +19,4 @@ frontend:
     baseDirectory: .next
     files:
       - '**/*'
-  cache:
-    paths:
-      - .next/cache/**/*
-      - .npm/**/*
-      - node_modules/**/*
+      
