@@ -5,5 +5,5 @@ import { Vehicle } from "@/types";
 export default async function List() {
   const vehicles: Vehicle[] = await getVehicles();
 
-  return <ListContainer vehicles={vehicles} />;
+  return <ListContainer/>;
 }
