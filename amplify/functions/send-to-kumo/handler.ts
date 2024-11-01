@@ -71,7 +71,7 @@ export const handler: Schema["sendToKumo"]["functionHandler"] = async (event) =>
                 response = "11";
                 break;
             default:
-                response = ""
+                response = "";
                 break;
         }
         return response;
@@ -145,9 +145,9 @@ export const handler: Schema["sendToKumo"]["functionHandler"] = async (event) =>
         const args = event;
         console.log(args);
 
-        const documentType = processDocumentType(args.identificationNumber!);
+        const documentType = processDocumentType(args.identificationType!);
 
-        const { dealerCode } = processDealer(args.dealer!);
+        const { dealerCode } = processDealer(args.dealerCode!);
 
         const payload = {
             records: [
@@ -159,15 +159,15 @@ export const handler: Schema["sendToKumo"]["functionHandler"] = async (event) =>
                     LastName: args.lastName,
                     FirstName: args.firstName,
                     ATC_Numero_de_documento__c: args.identificationNumber,
-                    ATC_TipoDocumentoCandidato__c: "13",
+                    ATC_TipoDocumentoCandidato__c: documentType,
                     Company: "",
                     Email: args.email,
                     MobilePhone: args.phoneNumber,
                     ATC_Modelo__c: args.vehicleModel,
                     ATC_Version__c: args.vehicleVersion,
                     ATC_CiudadLista__c: "08001",
-                    ATC_ConcesionarioLista__c: "15",
-                    ATC_VitrinaLista__c: "34",
+                    ATC_ConcesionarioLista__c: dealerCode,
+                    ATC_VitrinaLista__c: args.dealer,
                     ATC_Autorizacion_tratamiento_de_datos__c: args.dataAuthorization ? "Si" : "No",
                     ATC_AceptacionTerminosyCondiciones__c: args.termsAndConditions,
                     LeadSource: "Web to lead ATC"
