@@ -142,7 +142,8 @@ export const handler: Schema["sendToKumo"]["functionHandler"] = async (event) =>
 
     if (token) {
 
-        const args = event.arguments;
+        const args = event;
+        console.log(args);
 
         const documentType = processDocumentType(args.identificationNumber!);
 
@@ -153,7 +154,7 @@ export const handler: Schema["sendToKumo"]["functionHandler"] = async (event) =>
                 {
                     attributes: {
                         type: 'lead',
-                        referenceId: (Date.now() / 1000).toString()
+                        referenceId: Math.floor(Date.now() / 1000).toString()
                     },
                     LastName: args.lastName,
                     FirstName: args.firstName,
