@@ -5,22 +5,21 @@ export const handler: Schema["sendToKumo"]["functionHandler"] = async (event) =>
 
     const grantType = 'password';
 
-    /*
     const userName = 'integration@toyota.com';
     const password = 'ATCT0y0@P1#24*$cZ6EdXgKlCjBxqW4tZa2aGfmF';
-    const clientId = '3MVG9X4LnCkfEVVhdhBNpParSm5Nj7jvcRurY3Ty5fKYjJzzJ7zevxyQrJwP60mCpp2m3zbgcEZwJT114BI';
+    const clientId = '3MVG9X4LnCkfEVVhdhBNpParSm5Nj7jZjvcRurY3Ty5fKYjJzzJ7zevxyQrJwP60mCpp2m3zbgcEZwJT114BI';
     const clientSecret = '47B30C4368E436B2890C0FA90026BCA2C9F10392A5B8454491EEA0FC6DD9515D';
     const salesforceUrl = 'https://login.salesforce.com/services/oauth2/token';
     const kumoUrl = 'https://kumo-toyota.my.salesforce.com/services/data/v56.0/composite/tree/Lead';
-    */
 
+    /*
     const userName = 'integration@toyota.com.dev';
     const password = 'Freeway2022!4FCg3sNxUoQYk9stJJUx4b51Q';
     const clientId = '3MVG9oZtFCVWuSwNbU9py_ihvJiNbAieug5rRspqxNhMnymDpOX3QNMbPVhMx34Nh6bejWVd9az3sPjQ8g2Xt';
     const clientSecret = 'D1500A77493F38B10C6742FD550ED997770A8CC6C68D6387BC44CFE6A4874C95';
     const salesforceUrl = 'https://test.salesforce.com/services/oauth2/token';
     const kumoUrl = 'https://kumo-toyota.my.salesforce.com/services/data/v56.0/composite/tree/Lead';
-
+    */
 
     const getAccessToken = async () => {
         try {
