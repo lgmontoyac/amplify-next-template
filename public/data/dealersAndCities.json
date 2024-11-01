@@ -1,0 +1,493 @@
+[
+  {
+    "Codigo": "05059",
+    "Nombre": "ARMENIA",
+    "Vitrinas": [
+      {
+        "IdVitrina": 26,
+        "Nombre": "AUTOCORDILLERA S.A.",
+        "Direccion": "Cra. 19 # 7A - 52",
+        "Latitud": "4.5415774155854844",
+        "Longitud": "-75.66905363620538"
+      }
+    ]
+  },
+  {
+    "Codigo": "68081",
+    "Nombre": "BARRANCABERMEJA",
+    "Vitrinas": [
+      {
+        "IdVitrina": 47,
+        "Nombre": "SANAUTOS MOTOR S.A.",
+        "Direccion": "Cl. 48 # 22 - 80",
+        "Latitud": "7.194406708841522",
+        "Longitud": "-73.86994494698087"
+      }
+    ]
+  },
+  {
+    "Codigo": "08001",
+    "Nombre": "BARRANQUILLA",
+    "Vitrinas": [
+      {
+        "IdVitrina": 27,
+        "Nombre": "AUTOMERCANTIL DEL CARIBE - CRA 45",
+        "Direccion": "Cra. 45 # 48-95",
+        "Latitud": "10.987369096503533",
+        "Longitud": "-74.78812764573375"
+      },
+      {
+        "IdVitrina": 28,
+        "Nombre": "AUTOMERCANTIL DEL CARIBE - CIRCUNVALAR",
+        "Direccion": "CC Auto Plaza Av. Circunvalar con Cra 51B (entre Cra. 51 B y 53)",
+        "Latitud": "11.0175175169795",
+        "Longitud": "-74.8384384761019"
+      },
+      {
+        "IdVitrina": 38,
+        "Nombre": "AUTOTROPICAL S.A.S. BARRANQUILLA - Calle 77",
+        "Direccion": "Cl. 77B # 59-105",
+        "Latitud": "11.009327251812504",
+        "Longitud": "-74.80303720173801"
+      },
+      {
+        "IdVitrina": 34,
+        "Nombre": "AUTOTROPICAL S.A.S. BARRANQUILLA - Cra 55",
+        "Direccion": "Cra. 55 # 75 - 17",
+        "Latitud": "11.002731168133828",
+        "Longitud": "-74.80325952169854"
+      }
+    ]
+  },
+  {
+    "Codigo": "11001",
+    "Nombre": "BOGOTÁ, D.C.",
+    "Vitrinas": [
+      {
+        "IdVitrina": 39,
+        "Nombre": "CARCO S.A.",
+        "Direccion": "Cl. 13 No. 43 - 64",
+        "Latitud": "4.624326550552157",
+        "Longitud": "-74.10239710343566"
+      },
+      {
+        "IdVitrina": 41,
+        "Nombre": "CVI AUTOPISTA",
+        "Direccion": "AUTOPISTA NORTE # 223-33",
+        "Latitud": "4.801402198975339",
+        "Longitud": "-74.03878560526044"
+      },
+      {
+        "IdVitrina": 10,
+        "Nombre": "DISTOYOTA CALLE 13",
+        "Direccion": "Cl. 13 # 42b-45",
+        "Latitud": "4.622928454077912",
+        "Longitud": "-74.10238502810331"
+      },
+      {
+        "IdVitrina": 11,
+        "Nombre": "DISTOYOTA CALLE 150",
+        "Direccion": "Cra. 7 # 150-90",
+        "Latitud": "4.725605153719476",
+        "Longitud": "-74.02458467879454"
+      },
+      {
+        "IdVitrina": 12,
+        "Nombre": "DISTOYOTA CALLE 102",
+        "Direccion": "Av. Cra. 70 # 102 - 02",
+        "Latitud": "4.695142374790167",
+        "Longitud": "-74.07342794576321"
+      },
+      {
+        "IdVitrina": 48,
+        "Nombre": "TOYONORTE CALLE 127",
+        "Direccion": "Cl. 127 # 21-41",
+        "Latitud": "4.706327557193721",
+        "Longitud": "-74.0525442034356"
+      },
+      {
+        "IdVitrina": 59,
+        "Nombre": "YOKOMOTOR 134",
+        "Direccion": "Cra. 7 # 134 - 36",
+        "Latitud": "4.712973307641861",
+        "Longitud": "-74.02915405517211"
+      },
+      {
+        "IdVitrina": 62,
+        "Nombre": "YOKOMOTOR 72",
+        "Direccion": "Cra. 29C No. 72 - 23",
+        "Latitud": "4.66282957653386",
+        "Longitud": "-74.0668017457633"
+      }
+    ]
+  },
+  {
+    "Codigo": "68001",
+    "Nombre": "BUCARAMANGA",
+    "Vitrinas": [
+      {
+        "IdVitrina": 14,
+        "Nombre": "DISTOYOTA BUCARAMANGA - Cra 27",
+        "Direccion": "Cra. 27 # 56-19",
+        "Latitud": "7.109668000412404",
+        "Longitud": "-73.11327069987189"
+      }
+    ]
+  },
+  {
+    "Codigo": "76001",
+    "Nombre": "CALI",
+    "Vitrinas": [
+      {
+        "IdVitrina": 3,
+        "Nombre": "AGRICOLA AUTOMOTRIZ CIUDAD JARDIN",
+        "Direccion": "Cl. 18 # 105 - 82",
+        "Latitud": "3.3615912369045065",
+        "Longitud": "-76.53092427876625"
+      },
+      {
+        "IdVitrina": 2,
+        "Nombre": "AGRICOLA AUTOMOTRIZ CALI",
+        "Direccion": "Cra. 8 # 33 - 72",
+        "Latitud": "3.453976359895867",
+        "Longitud": "-76.51204493580823"
+      },
+      {
+        "IdVitrina": 30,
+        "Nombre": "AUTOMOTORA NORTE Y SUR - NORTE",
+        "Direccion": "Cl. 15 # 35 – 84 Acopi - Yumbo",
+        "Latitud": "3.5024550248358817",
+        "Longitud": "-76.50613302334011"
+      },
+      {
+        "IdVitrina": 31,
+        "Nombre": "AUTOMOTORA NORTE Y SUR - SUR",
+        "Direccion": "Av. Pasoancho Cl. 13 # 78 A - 150",
+        "Latitud": "3.387794979564747",
+        "Longitud": "-76.53893638968567"
+      }
+    ]
+  },
+  {
+    "Codigo": "13001",
+    "Nombre": "CARTAGENA",
+    "Vitrinas": [
+      {
+        "IdVitrina": 45,
+        "Nombre": "JUANAUTOS EL CERRO S.A",
+        "Direccion": "Pie del cerro Cl. 30 # 18A-104",
+        "Latitud": "10.422817708152797",
+        "Longitud": "-75.53722409286512"
+      }
+    ]
+  },
+  {
+    "Codigo": "25175",
+    "Nombre": "CHÍA",
+    "Vitrinas": [
+      {
+        "IdVitrina": 46,
+        "Nombre": "NOVAMOTORS",
+        "Direccion": "Vereda El Canelón Univ. Manuela Beltran",
+        "Latitud": "4.892047160803264",
+        "Longitud": "-74.03476584576295"
+      }
+    ]
+  },
+  {
+    "Codigo": "54001",
+    "Nombre": "CÚCUTA",
+    "Vitrinas": [
+      {
+        "IdVitrina": 42,
+        "Nombre": "CUCUTA MOTORS - CUCUTA",
+        "Direccion": "Cra. 7 # 10 – 52 Autopista internacional, Barrio – Villa del Rosarios",
+        "Latitud": "7.864797492363292",
+        "Longitud": "-72.48170434575366"
+      }
+    ]
+  },
+  {
+    "Codigo": "05266",
+    "Nombre": "ENVIGADO",
+    "Vitrinas": [
+      {
+        "IdVitrina": 70,
+        "Nombre": "AUTOAMERICA ENVIGADO",
+        "Direccion": "Cra. 48 # 44 sur - 151",
+        "Latitud": "6.166492344997967",
+        "Longitud": "-75.5995420206304"
+      }
+    ]
+  },
+  {
+    "Codigo": "73001",
+    "Nombre": "IBAGUÉ",
+    "Vitrinas": [
+      {
+        "IdVitrina": 7,
+        "Nombre": "DISTOYOTA IBAGUE",
+        "Direccion": "Zona Industrial El Papayo Km 1 Vía Girardot",
+        "Latitud": "4.428308872444361",
+        "Longitud": "-75.20507437939101"
+      }
+    ]
+  },
+  {
+    "Codigo": "17380",
+    "Nombre": "LA DORADA",
+    "Vitrinas": [
+      {
+        "IdVitrina": 4,
+        "Nombre": "DISTOYOTA LA DORADA",
+        "Direccion": "Diag. 11 # 16-266",
+        "Latitud": "5.4466899235898145",
+        "Longitud": "-74.67066257459804"
+      }
+    ]
+  },
+  {
+    "Codigo": "17001",
+    "Nombre": "MANIZALES",
+    "Vitrinas": [
+      {
+        "IdVitrina": 55,
+        "Nombre": "VEHICULOS DE CALDAS S.A. - VEHICALDAS S.A.",
+        "Direccion": "Cra. 23 # 34 - 37",
+        "Latitud": "5.0679884218148805",
+        "Longitud": "-75.50842684576263"
+      }
+    ]
+  },
+  {
+    "Codigo": "05001",
+    "Nombre": "MEDELLÍN",
+    "Vitrinas": [
+      {
+        "IdVitrina": 24,
+        "Nombre": "AUTOAMERICA APARTADO",
+        "Direccion": "Cra. 103A # 97 - 24 Esquina",
+        "Latitud": "7.8819204382605905",
+        "Longitud": "-76.63498186215018"
+      },
+      {
+        "IdVitrina": 25,
+        "Nombre": "AUTOAMERICA INDUSTRIALES",
+        "Direccion": "Cra 48 No. 20 -77",
+        "Latitud": "6.22235",
+        "Longitud": "-75.575492"
+      },
+      {
+        "IdVitrina": 23,
+        "Nombre": "AUTOAMERICA PALACE",
+        "Direccion": "Cra. 50 # 38 - 50",
+        "Latitud": "6.239568065148818",
+        "Longitud": "-75.5716934138255"
+      },
+      {
+        "IdVitrina": 53,
+        "Nombre": "TUYOMOTOR INDUSTRIALES",
+        "Direccion": "Av. Industriales Cra. 48 # 14 - 230",
+        "Latitud": "6.21756357466621",
+        "Longitud": "-75.57556560525714"
+      },
+      {
+        "IdVitrina": 63,
+        "Nombre": "YOKOMOTOR EL TESORO",
+        "Direccion": "Sótano 4 – torre Norte Parque Comercial el Tesoro – Cra. 25 A # 1 A Sur  45",
+        "Latitud": "6.197988947056598",
+        "Longitud": "-75.55845974960852"
+      },
+      {
+        "IdVitrina": 61,
+        "Nombre": "YOKOMOTOR GUAYABAL",
+        "Direccion": "Cl. 10 # 50 - 398",
+        "Latitud": "6.214887529989522",
+        "Longitud": "-75.58114994391936"
+      },
+      {
+        "IdVitrina": 60,
+        "Nombre": "YOKOMOTOR PALACE",
+        "Direccion": "Cra. 50 # 32- 182",
+        "Latitud": "6.235361325242653",
+        "Longitud": "-75.57353734377709"
+      }
+    ]
+  },
+  {
+    "Codigo": "23001",
+    "Nombre": "MONTERÍA",
+    "Vitrinas": [
+      {
+        "IdVitrina": 22,
+        "Nombre": "AUTO ROBLE MONTERIA",
+        "Direccion": "Cra. 2 # 45 - 327",
+        "Latitud": "8.767503773585197",
+        "Longitud": "-75.87422177458505"
+      }
+    ]
+  },
+  {
+    "Codigo": "41001",
+    "Nombre": "NEIVA",
+    "Vitrinas": [
+      {
+        "IdVitrina": 8,
+        "Nombre": "DISTOYOTA NEIVA",
+        "Direccion": "Cra. 5 # 10 - 42 Sur",
+        "Latitud": "2.9155761551330786",
+        "Longitud": "-75.28543621291996"
+      }
+    ]
+  },
+  {
+    "Codigo": "54498",
+    "Nombre": "OCAÑA",
+    "Vitrinas": [
+      {
+        "IdVitrina": 72,
+        "Nombre": "OCAÑA MOTORS - CUCUTA MOTORS",
+        "Direccion": "Calle 7 No 30-46 Avenida Francisco Fernández de Contreras",
+        "Latitud": "8.25582",
+        "Longitud": "-73.35945"
+      }
+    ]
+  },
+  {
+    "Codigo": "52001",
+    "Nombre": "PASTO",
+    "Vitrinas": [
+      {
+        "IdVitrina": 9,
+        "Nombre": "DISTOYOTA PASTO",
+        "Direccion": "Av. Panamericana Cra. 36 # 14 - 46",
+        "Latitud": "1.2203664799794507",
+        "Longitud": "-77.28723584576161"
+      }
+    ]
+  },
+  {
+    "Codigo": "66001",
+    "Nombre": "PEREIRA",
+    "Vitrinas": [
+      {
+        "IdVitrina": 29,
+        "Nombre": "AUTOMOTORA DE OCCIDENTE S.A.",
+        "Direccion": "Km 6 vía Cerritos",
+        "Latitud": "4.813242880574387",
+        "Longitud": "-75.79435393041837"
+      },
+      {
+        "IdVitrina": 56,
+        "Nombre": "VEHICULOS DEL CAFE S.A.",
+        "Direccion": "Av. 30 de Agosto # 100 - 112",
+        "Latitud": "4.8136258674183035",
+        "Longitud": "-75.76043799814674"
+      }
+    ]
+  },
+  {
+    "Codigo": "44001",
+    "Nombre": "RIOHACHA",
+    "Vitrinas": [
+      {
+        "IdVitrina": 35,
+        "Nombre": "AUTOTROPICAL S.A.S. RIOHACHA",
+        "Direccion": "Cra. 1 # 17C – 81",
+        "Latitud": "11.54262454089911",
+        "Longitud": "-72.89840364572915"
+      }
+    ]
+  },
+  {
+    "Codigo": "47001",
+    "Nombre": "SANTA MARTA",
+    "Vitrinas": [
+      {
+        "IdVitrina": 37,
+        "Nombre": "AUTOTROPICAL S.A.S. STA MARTA",
+        "Direccion": "Cra. 4 # 31 - 09",
+        "Latitud": "11.232570482012616",
+        "Longitud": "-74.2135658114906"
+      }
+    ]
+  },
+  {
+    "Codigo": "70001",
+    "Nombre": "SINCELEJO",
+    "Vitrinas": [
+      {
+        "IdVitrina": 21,
+        "Nombre": "AUTO ROBLE SINCELEJO",
+        "Direccion": "Cra. 25 # 25 - 189 Av. Okala",
+        "Latitud": "9.299247369718712",
+        "Longitud": "-75.38613048467128"
+      }
+    ]
+  },
+  {
+    "Codigo": "76834",
+    "Nombre": "TULUÁ",
+    "Vitrinas": [
+      {
+        "IdVitrina": 1,
+        "Nombre": "AGRICOLA AUTOMOTRIZ TULUA",
+        "Direccion": "Cra. 40 # 43 - 10",
+        "Latitud": "4.070162537945005",
+        "Longitud": "-76.1930776034362"
+      }
+    ]
+  },
+  {
+    "Codigo": "15001",
+    "Nombre": "TUNJA",
+    "Vitrinas": [
+      {
+        "IdVitrina": 20,
+        "Nombre": "ALBORAUTOS TUNJA",
+        "Direccion": "Cra. 6 # 51 - 174",
+        "Latitud": "5.560229054926881",
+        "Longitud": "-73.34846843227018"
+      }
+    ]
+  },
+  {
+    "Codigo": "20001",
+    "Nombre": "VALLEDUPAR",
+    "Vitrinas": [
+      {
+        "IdVitrina": 36,
+        "Nombre": "AUTOTROPICAL S.A.S. V/DUPAR",
+        "Direccion": "Cra. 7A # 22 - 64",
+        "Latitud": "10.462370235648956",
+        "Longitud": "-73.2434293666422"
+      }
+    ]
+  },
+  {
+    "Codigo": "50001",
+    "Nombre": "VILLAVICENCIO",
+    "Vitrinas": [
+      {
+        "IdVitrina": 57,
+        "Nombre": "VEHICULOS DEL LLANO SAS",
+        "Direccion": "Av al Llano Cra. 23  37 D 48",
+        "Latitud": "4.154320924014865",
+        "Longitud": "-73.628719"
+      }
+    ]
+  },
+  {
+    "Codigo": "85001",
+    "Nombre": "YOPAL",
+    "Vitrinas": [
+      {
+        "IdVitrina": 19,
+        "Nombre": "ALBORAUTOS YOPAL",
+        "Direccion": "Diag. 9 # 7B - 08",
+        "Latitud": "5.335584725514158",
+        "Longitud": "-72.4073613015812"
+      }
+    ]
+  }
+]

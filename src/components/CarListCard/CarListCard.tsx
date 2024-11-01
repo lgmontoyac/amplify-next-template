@@ -1,13 +1,9 @@
-import {
-  Button,
-  Flex,
-  Icon,
-  Image,
-  Link,
-  Text,
-  View,
-} from "@aws-amplify/ui-react";
+"use client";
+
+import { Flex, Image, Link, Text, View } from "@aws-amplify/ui-react";
 import styles from "./CarListCard.module.scss";
+import { getUrl } from "aws-amplify/storage";
+import { useEffect, useState } from "react";
 
 const backgroundColorsList = [
   "#29363A",
@@ -25,32 +21,43 @@ export function CarListCard({ index, car }: CarListCardProps) {
   const backgroundColor =
     backgroundColorsList[index % backgroundColorsList.length];
 
+  const getLowerPrice = () => {
+    if (!car.models || !car.models.items || car.models.items.length === 0) {
+      return null;
+    }
+
+    const prices = car.models.items.map((model: { price: any }) => model.price);
+    const lowestPrice = Math.min(...prices);
+
+    return lowestPrice;
+  };
+
   return (
-    <Link href={`/detail/${car.id}`}>
+    <Link href={`/detail/${car.id}`} width="100%" display="block">
       <Flex
         className={styles.card}
         style={{ backgroundColor }}
         onClick={() => {}}
         role="button"
         tabIndex={0}
-        aria-label={`Ver detalles para ${car.model}`}
+        aria-label={`Ver detalles para ${car.name}`}
       >
         <View className={styles.title}>
           <Text color="white" fontSize="xl">
-            {car.type}
+            {car.segment}
           </Text>
           <Text color="white" fontSize="xxxxl">
-            {car.model}
+            {car.name}
           </Text>
         </View>
         <View className={styles.image}>
-          <Image src={car.photoUrl} alt={car.model} />
+          <Image src={car.photoUrl} alt={car.name} />
           <Text
             position="absolute"
             bottom="20px"
             className="image-text"
             color="white"
-            fontSize="medium"
+            fontSize="large"
           >
             *Imágenes de referencia
           </Text>
@@ -66,9 +73,14 @@ export function CarListCard({ index, car }: CarListCardProps) {
             paddingBottom="11px"
             fontWeight="700"
           >
-            {car.price}
+            {getLowerPrice() !== null
+              ? getLowerPrice()?.toLocaleString("es-CO", {
+                  style: "currency",
+                  currency: "COP",
+                })
+              : "Sin precio"}
           </Text>
-          <Text color="white" fontSize="medium">
+          <Text color="white" fontSize="large">
             *Precio sugerido al público
           </Text>
           <Text
@@ -78,8 +90,9 @@ export function CarListCard({ index, car }: CarListCardProps) {
             padding="5px 20px"
             display="inline-block"
             borderRadius="small"
+            fontSize="xl"
           >
-            {car.category}
+            {car.fuelType}
           </Text>
         </View>
         <Image

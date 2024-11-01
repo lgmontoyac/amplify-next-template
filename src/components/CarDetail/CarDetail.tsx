@@ -3,26 +3,34 @@ import styles from "./CarDetail.module.scss";
 
 interface CarDetailProps {
   car: any; // TODO: remove "any" when we have final model.
+  selectedColor: any;
+  selectedModel: any;
+  onClickCta?: () => void;
 }
-export function CarDetail({ car }: CarDetailProps) {
+export function CarDetail({
+  car,
+  selectedColor,
+  selectedModel,
+  onClickCta,
+}: CarDetailProps) {
   return (
-    <>
+    <View>
       <Flex justifyContent="center" gap="3rem">
-        <Image maxWidth="1143px" src={car.photoUrl} alt={car.model} />
+        <Image maxWidth="1143px" src={selectedColor.photoUrl} alt={car.model} />
         <Flex direction="column" gap="3rem">
           <View className={styles.title}>
-            <Image src={car.logoUrl} alt={car.model} />
+            <Image src={car.logoImageUrlFull} alt={car.model} />
             <Text
               color="black"
               fontSize="xxxxl"
               marginTop={10}
               fontWeight={600}
             >
-              {car.submodel}
+              {selectedModel.shortName}
             </Text>
           </View>
           <View className={styles.price}>
-            <Text color="specialGray" fontSize="xl">
+            <Text color="specialGray" fontSize="xxl">
               Desde
             </Text>
             <Text
@@ -32,9 +40,12 @@ export function CarDetail({ car }: CarDetailProps) {
               paddingBottom="11px"
               fontWeight="700"
             >
-              {car.price}
+              {selectedModel.price.toLocaleString("es-CO", {
+                style: "currency",
+                currency: "COP",
+              })}
             </Text>
-            <Text color="specialGray" fontSize="xl">
+            <Text color="specialGray" fontSize="xxl">
               *Precio sugerido al público
             </Text>
           </View>
@@ -45,6 +56,7 @@ export function CarDetail({ car }: CarDetailProps) {
               size="large"
               padding="25px 69px"
               fontSize="xl"
+              onClick={onClickCta}
             >
               Cotizar Vehículo
             </Button>
@@ -55,10 +67,10 @@ export function CarDetail({ car }: CarDetailProps) {
         fontFamily="var(--font-toyotaDisplay)"
         textAlign="center"
         color="black"
-        fontSize="medium"
+        fontSize="large"
       >
         *Imágenes de referencia
       </Text>
-    </>
+    </View>
   );
 }

@@ -1,15 +1,20 @@
-"use client"; // ThemeProvider force us to use "client" mode, because has inside useForm
+// src/app/layout.tsx
+"use server";
 
 import { fonts } from "@/theme/fonts";
-
 import "@aws-amplify/ui-react/styles.css";
 import "@/app/app.css";
 
-import { ThemeProvider } from "@aws-amplify/ui-react";
-import ToyotaTotemTheme from "@/theme";
-import { VehicleProvider } from "@/context/VehiclesProvider";
+import Providers from "./providers";
 
-export default function RootLayout({
+import { Amplify } from "aws-amplify";
+import outputs from "../../amplify_outputs.json";
+
+Amplify.configure(outputs, {
+  ssr: true,
+});
+
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
@@ -21,9 +26,7 @@ export default function RootLayout({
       manifest="/manifest.json"
     >
       <body>
-        <ThemeProvider theme={ToyotaTotemTheme}>
-          <VehicleProvider>{children}</VehicleProvider>
-        </ThemeProvider>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

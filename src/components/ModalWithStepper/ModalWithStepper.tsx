@@ -4,17 +4,25 @@ import Stepper from './../Stepper/Stepper';
 import { DataForm } from '../DataForm/DataForm';
 import { ContactDetailsForm } from '../ContactDetailsForm/ContactDetailsForm';
 import { DealerForm } from '../DealerForm/DealerForm';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ShippingConfirmation } from '../ShippingConfirmation/ShippingConfirmation';
 
 interface ModalWithStepperProps {
+  description: string;
   isOpen: boolean;
   onClose: () => void;
+  onRedirect: () => void;
 }
 
 type StepKey = 'dataForm' | 'contactDetailsForm' | 'dealerForm';
 
-export default function ModalWithStepper({ isOpen, onClose }: ModalWithStepperProps) {
+export default function ModalWithStepper({ isOpen, onClose, onRedirect, description }: ModalWithStepperProps) {
+  const [isValid, setIsValid] = useState({ 
+    dataForm: false, 
+    contactDetailsForm: false, 
+    dealerForm: false 
+  });
+  const [isValidDealerForm, setIsValidDealerForm] = useState(false);
   const [formData, setFormData] = useState({
     dataForm: { 
       firstName: '',
@@ -27,55 +35,83 @@ export default function ModalWithStepper({ isOpen, onClose }: ModalWithStepperPr
       email: ''
     },
     dealerForm: { 
-      name: '',
+      dealer: '',
       city: ''
     },
   });
 
-  const handleFormDataChange = (step: StepKey, data: Record<string, string>) => {
+  const handleFormDataChange = (step: StepKey, data: Record<string, string>, isValid: boolean) => {
     setFormData((prevData) => ({
       ...prevData,
       [step]: { ...prevData[step], ...data },
+    }));
+
+    setIsValid((prevIsValid) => ({
+      ...prevIsValid,
+      [step]: isValid,
     }));
   };
 
   const steps = [
     {
-      title: 'Personal Info',
-      content: <DataForm data={formData.dataForm} onChange={(data) => handleFormDataChange('dataForm', data)} />,
+      title: 'Datos',
+      content: (
+        <DataForm
+          data={formData.dataForm}
+          onChange={(data) => handleFormDataChange('dataForm', data, isValid.dataForm)}
+          onValidate={(isValid) => setIsValid((prev) => ({ ...prev, dataForm: isValid }))}
+        />
+      ),
     },
     {
-      title: 'Contact Details',
-      content: <ContactDetailsForm data={formData.contactDetailsForm} onChange={(data) => handleFormDataChange('contactDetailsForm', data)} />,
+      title: 'Datos de contacto',
+      content: <ContactDetailsForm 
+        data={formData.contactDetailsForm} 
+        onChange={(data) => handleFormDataChange('contactDetailsForm', data, isValid.contactDetailsForm)}
+        onValidate={(isValid) => setIsValid((prev) => ({ ...prev, contactDetailsForm: isValid }))}
+      />,
     },
     {
-      title: 'Dealership Info',
-      content: <DealerForm data={formData.dealerForm} onChange={(data) => handleFormDataChange('dealerForm', data)} />,
+      title: 'Concesionario',
+      content: <DealerForm 
+        data={formData.dealerForm}
+        onChange={(data) => handleFormDataChange('dealerForm', data, isValid.dealerForm)}
+        onValidate={(isValid) => {
+          setIsValidDealerForm(isValid);
+        }}
+      />,
     },
     {
-      title: 'Confirmation',
+      title: 'Confirmación',
       content: <ShippingConfirmation />,
     },
   ];
 
-  const handleStepChange = (stepIndex: number) => {
-  };
-
   const handleStepSendData = () => {
-    console.log("Sen data", formData)
+    if (isValid.dataForm && isValid.contactDetailsForm && isValidDealerForm) {
+      console.log("Send data", formData);
+    }
   };
-
-  const handleStepRedirect = () => {
-    console.log("Redirect")
-  };
+  const handleStepRedirect = () => onRedirect();
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} title="Cotiza la Land Cruiser Prado First Edition">
-      <Stepper 
-        steps={steps} 
-        onStepChange={handleStepChange} 
+    <Modal 
+      isOpen={isOpen}
+      onClose={onClose}
+      title="Cotiza tu"
+      description={description}
+    >
+      <Stepper
+        steps={steps}
+        onStepChange={() => {}}
         onStepSendData={handleStepSendData}
         onStepRedirect={handleStepRedirect}
+        isStepValid={[
+          isValid.dataForm, 
+          isValid.contactDetailsForm, 
+          isValidDealerForm,
+          true  
+        ]}
       />
     </Modal>
   );

@@ -4,6 +4,7 @@ import { Button, View, Image } from "@aws-amplify/ui-react";
 
 interface ModalProps {
   title?: string;
+  description?: string;
   isOpen: boolean;
   onClose: () => void;
   children: React.ReactNode;
@@ -13,6 +14,7 @@ export default function Modal({
   isOpen,
   onClose,
   title,
+  description,
   children,
 }: ModalProps) {
   return (
@@ -20,21 +22,22 @@ export default function Modal({
       <Dialog.Overlay className={styles.overlay} />
       <Dialog.Content className={styles.content}>
         <Dialog.Title className={styles.title}>{title}</Dialog.Title>
-        <Dialog.Close asChild>
-          <Button
+        <Dialog.Description className={styles.description}>{description}</Dialog.Description>
+        <Button
+          className={styles.closeButton}
+          aria-label="Close"
+          onClick={onClose}
+          style={{ border: "none" }}
+        >
+          <Image
+            textAlign="center"
+            src="/assets/icons/icon_close.svg"
+            alt="Close Icon"
+            loading="lazy"
             className={styles.closeButton}
-            aria-label="Close"
-            style={{ border: "none" }}
-          >
-            <Image
-              textAlign="center"
-              src="/assets/icons/icon_close.svg"
-              alt="Close Icon"
-              loading="lazy"
-              style={{ width: "1rem" }}
-            />
-          </Button>
-        </Dialog.Close>
+          />
+        </Button>
+
         <View className={styles.body}>{children}</View>
       </Dialog.Content>
     </Dialog.Root>

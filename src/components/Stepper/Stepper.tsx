@@ -18,9 +18,10 @@ interface StepperProps {
   onStepChange: (stepIndex: number) => void;
   onStepSendData: () => void;
   onStepRedirect: () => void;
+  isStepValid: boolean[];
 }
 
-export default function Stepper({ steps, onStepChange, onStepSendData, onStepRedirect }: StepperProps) {
+export default function Stepper({ steps, onStepChange, onStepSendData, onStepRedirect, isStepValid }: StepperProps) {
   const [activeStep, setActiveStep] = useState(0);
 
   const handleNext = () => {
@@ -50,13 +51,7 @@ export default function Stepper({ steps, onStepChange, onStepSendData, onStepRed
               <StepContainer>
                 <div style={{ textAlign: "center" }}>
                   {step.title && (
-                    <div
-                      style={{
-                        fontSize: "15px",
-                        color: "#F6F6F6",
-                        marginTop: "4px",
-                      }}
-                    >
+                    <div className={styles.title}>
                       {step.title}
                     </div>
                   )}
@@ -70,34 +65,47 @@ export default function Stepper({ steps, onStepChange, onStepSendData, onStepRed
         {steps[activeStep].content}
         <div className={styles.buttonContainer}>
           <Button
-            disabled={activeStep === 0}
             onClick={handleBack}
-            style={{ border: "none", background: "transparent" }}
+            disabled={activeStep === 0}
+            marginTop="5rem"
+            marginBottom="5rem"
+            border="none"
+            backgroundColor="transparent"
+            marginLeft="3rem"
           >
+          {activeStep != 0 && (
             <Image
               textAlign="center"
               src="/assets/icons/icon_arrow.svg"
               alt="Icon Arrow"
               loading="lazy"
-              style={{ width: "1rem" }}
+              className={styles.arrowImage}
             />
+          )}
           </Button>
           <Button 
-            variation='primary' 
+            variation="primary"
+            display="inline-flex"
+            size="large"
+            padding="1.563rem 4.313rem"
+            fontSize="xl"
+            marginTop="5rem"
+            marginBottom="5rem"
+            marginRight="3rem"
+            disabled={!isStepValid[activeStep]}
             onClick={() => {
-              if (activeStep === 2) {
+              if (activeStep === steps.length - 2) {
                 onStepSendData();
                 handleNext();
-              } else if (activeStep === 3) {
+              } else if (activeStep === steps.length - 1) {
                 onStepRedirect();
               } else {
                 handleNext();
               }
             }}
           >
-            {activeStep === 2 ? 'Enviar' : activeStep === 3 ? 'Ver más vehículos' : 'Siguiente'}
+            {activeStep === steps.length - 2 ? 'Enviar' : activeStep === steps.length - 1 ? 'Ver más vehículos' : 'Siguiente'}
           </Button>
-
         </div>
       </div>
     </div>

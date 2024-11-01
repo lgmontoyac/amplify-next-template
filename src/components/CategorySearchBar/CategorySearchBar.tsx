@@ -1,24 +1,19 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./CategorySearchBar.module.scss";
 import { Button, Image, View } from "@aws-amplify/ui-react";
-import dynamic from "next/dynamic";
+import Select from "react-select";
 
-const Select = dynamic(() => import("react-select"), { ssr: false });
-interface Option {
+export interface Option {
   value: string;
   label: string;
 }
 
 interface CategorySearchBarProps {
   categoryList: Option[];
-  modelList?: Option[];
   selectedCategory?: Option;
-  selectedModel?: Option;
-  onSearch: (
-    selectedCategory: Option | null,
-    selectedModel: Option | null
-  ) => void;
+  onSearch: (selectedCategory: Option | null) => void;
 }
+
 const customStyles = {
   control: (provided: any) => ({
     ...provided,
@@ -65,29 +60,15 @@ const customStyles = {
 
 export function CategorySearchBar({
   categoryList,
-  modelList,
   selectedCategory,
-  selectedModel,
   onSearch,
 }: CategorySearchBarProps) {
   const [defaultSelectedCategory, setDefaultSelectedCategory] =
     useState<Option | null>(selectedCategory || null);
-  const [defaultSelectedModel, setDefaultSelectedModel] =
-    useState<Option | null>(selectedModel || null);
 
-  const onChangeHandler = (
-    action: "category" | "model",
-    option: Option | null
-  ) => {
-    if (action === "category") {
-      setDefaultSelectedCategory(option);
-    } else {
-      setDefaultSelectedModel(option);
-    }
-    onSearch(
-      action === "category" ? option : defaultSelectedCategory,
-      action === "model" ? option : defaultSelectedModel
-    );
+  const onChangeHandler = (option: Option | null) => {
+    setDefaultSelectedCategory(option);
+    onSearch(option);
   };
 
   return (
@@ -95,38 +76,11 @@ export function CategorySearchBar({
       <Select
         options={categoryList}
         value={defaultSelectedCategory}
-        onChange={(option) => onChangeHandler("category", option as Option)}
+        onChange={(option) => onChangeHandler(option as Option)}
         components={{ IndicatorSeparator: null }}
         backspaceRemovesValue={false}
         styles={customStyles}
       />
-      {modelList && modelList.length > 0 && (
-        <Select
-          options={modelList}
-          value={defaultSelectedModel}
-          onChange={(option) => onChangeHandler("model", option as Option)}
-          components={{ IndicatorSeparator: null }}
-          styles={customStyles}
-        />
-      )}
-      <View className={styles.separator}></View>
-      <Button
-        borderRadius="0"
-        height="100px"
-        display="flex"
-        justifyContent="center"
-        alignItems="center"
-        fontSize={22}
-        aria-label="save"
-        onClick={() => onSearch(defaultSelectedCategory, defaultSelectedModel)}
-        style={{
-          border: "none",
-          background: "transparent !important",
-          padding: "0 60px",
-        }}
-      >
-        <Image alt="Next" src="/icons/search.svg" />
-      </Button>
     </View>
   );
 }

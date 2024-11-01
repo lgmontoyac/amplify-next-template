@@ -52,11 +52,8 @@ button {
   box-shadow: none;
 }
 
-.amplify-input{
-    background-color: #F6F6F6;
-	gap: 10px;
-	border-radius: 50px;
-	opacity: 0px;
-	border: none;
-	color: #58595B;
+body {
+	zoom: 50%;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
 }

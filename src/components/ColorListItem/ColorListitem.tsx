@@ -2,11 +2,11 @@ import { Flex, Image, Text } from "@aws-amplify/ui-react";
 
 interface ColorListItemProps {
   item: {
-    id: number;
+    id: string;
     img: string;
     title: string;
   };
-  onSelect: (index: number) => void;
+  onSelect: (item: { id: string; img: string; title: string }) => void;
   isSelected: boolean;
 }
 
@@ -19,7 +19,7 @@ export function ColorListItem({
     <Flex direction="column">
       <Flex
         position="relative"
-        onClick={() => onSelect(item.id)}
+        onClick={() => onSelect(item)}
         width="70px"
         height="70px"
         justifyContent="center"

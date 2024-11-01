@@ -25,6 +25,18 @@ export const button = {
       backgroundColor: { value: "{colors.theme.white}" },
     },
   },
+  overlay: {
+    backgroundColor: { value: "transparent" },
+    _hover: {
+      backgroundColor: { value: "transparent" },
+    },
+    _focus: {
+      backgroundColor: { value: "transparent" },
+    },
+    _active: {
+      backgroundColor: { value: "transparent" },
+    },
+  },
   small: {
     paddingInlineStart: { value: "{space.xl}" },
     paddingInlineEnd: { value: "{space.xl}" },

@@ -5,10 +5,7 @@ import { v4 as uuidv4 } from "uuid";
 
 // Función para obtener rutas estáticas de las páginas
 const getStaticRoutes = (dir) => {
-  const entries = [
-    { url: "/", revision: uuidv4() },
-    { url: "/list", revision: uuidv4() },
-  ];
+  const entries = [{ url: "/", revision: uuidv4() }];
   const baseDir = path.join(process.cwd(), dir);
 
   fs.readdirSync(baseDir).forEach((file) => {

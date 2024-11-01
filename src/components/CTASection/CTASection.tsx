@@ -16,27 +16,33 @@ export function CTASection({ item }: CTASectionProps) {
           "linear-gradient(178.06deg, #E7EDF1 52.85%, #F4F7F9 98.36%)",
         justifyContent: "center",
       }}
-      maxWidth="2000px"
-      paddingTop="60px"
-      paddingBottom="60px"
+      maxWidth="125rem"
+      paddingTop="73px"
+      paddingBottom="73px"
       margin="0 auto"
-      maxHeight="344px"
       display="flex"
       textAlign="center"
       width="100%"
     >
-      <Flex direction="column" alignItems="center">
+      <Flex direction="column" alignItems="center" gap="56px">
         <Text
           color="#000000"
-          fontSize="xl"
-          padding="10px 20px"
-          borderRadius="8px"
+          padding="0.625rem 1.25rem"
+          borderRadius="0.5rem"
           fontWeight="400"
-          lineHeight="61.6px"
+          fontSize="xxxxl"
+          lineHeight="xxxxl"
         >
           {item.title}
         </Text>
-        <Button variation="primary" size="small" onClick={item.callback}>
+        <Button
+          variation="primary"
+          display="inline-flex"
+          size="large"
+          padding="1.5625rem 4.3125rem"
+          fontSize="xl"
+          onClick={item.callback}
+        >
           {item.textButton}
         </Button>
       </Flex>

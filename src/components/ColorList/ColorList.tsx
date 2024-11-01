@@ -1,34 +1,46 @@
 import { View, Text, Flex } from "@aws-amplify/ui-react";
 import { ColorListItem } from "../ColorListItem/ColorListitem";
 import { useState } from "react";
+import { ColorOption } from "@/types";
 
 interface ColorListProps {
-  colorLists: {
-    id: number;
-    img: string;
-    title: string;
-  }[];
+  colorLists: ColorOption[];
+
+  onSelect: (item: { id: string; img: string; title: string }) => void;
 }
 
-export function ColorList({ colorLists }: ColorListProps) {
-  const [currentColor, setCurrentColor] = useState(colorLists[0].id);
+export function ColorList({ colorLists, onSelect }: ColorListProps) {
+  const [currentColor, setCurrentColor] = useState<string>(colorLists[0]?.id);
+
   return (
-    <View maxWidth="2000px">
+    <View maxWidth="2400px">
       <Flex justifyContent="center" gap="37px">
         {colorLists.map((item, index) => (
           <ColorListItem
             key={index}
-            item={item}
-            onSelect={(item) => setCurrentColor(item)}
+            item={{
+              id: item.id,
+              img: item.iconUrl || "",
+              title: item.name,
+            }}
+            onSelect={(item) => {
+              setCurrentColor(item.id);
+              onSelect(item);
+            }}
             isSelected={item.id === currentColor}
           />
         ))}
       </Flex>
 
-      <Text textAlign="center" fontSize="xl" fontWeight="bold" marginTop="32px">
-        {colorLists.find((item) => item.id === currentColor)?.title}
+      <Text
+        textAlign="center"
+        fontSize="xxl"
+        fontWeight="bold"
+        marginTop="32px"
+      >
+        {colorLists.find((item) => item.id === currentColor)?.name}
       </Text>
-      <Text textAlign="center" fontSize="large" marginTop="10px">
+      <Text textAlign="center" fontSize="xl" marginTop="10px">
         *Los colores pueden variar por cada versión.
       </Text>
     </View>

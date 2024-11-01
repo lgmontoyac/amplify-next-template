@@ -11,30 +11,45 @@
   left: 50%;
   transform: translate(-50%, -50%);
   background: #000;
-  padding: 20px;
-  border-radius: 8px;
+  padding: 1.25rem;
+  border-radius: 0.5rem;
   width: 100%;
-  max-width: 1000px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
-  color: #fff;
+  max-width: 125.1875rem;
+  height: 90%;
+  max-height: 120.4375rem;
   animation: slideUp 0.3s ease;
 }
   
 .title {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-  color: #fff;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 2.85rem;
   text-align: center;
+  color: #F6F6F6;
+  margin-top: 7rem;
 }
-  
+
+.description {
+  font-size: 3.5rem;
+  font-weight: 400;
+  line-height: 3.85rem;
+  letter-spacing: -0.02em;
+  text-align: center;
+  color: #F6F6F6;
+  margin-top: 1rem;
+  margin-bottom: 5rem;
+}
+
 .closeButton {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 1.5rem;
+  right: 2rem;
   background: none;
   border: none;
   cursor: pointer;
   color: #fff; 
+  width: 2.8125rem;
+  height: 2.8125rem;
 }
   
 .body {

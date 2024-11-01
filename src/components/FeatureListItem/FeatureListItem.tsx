@@ -34,9 +34,9 @@ export function FeatureListItem({ item }: FeatureListItemProps) {
             style={{
               position: "absolute",
               top: "0",
-              right: "8px",
-              width: "28px",
-              height: "27px",
+              right: "0.5rem",
+              width: "1.75rem",
+              height: "1.6875rem",
             }}
           />
         ) : (
@@ -49,15 +49,19 @@ export function FeatureListItem({ item }: FeatureListItemProps) {
             style={{
               position: "absolute",
               top: "0",
-              right: "8px",
-              width: "28px",
-              height: "27px",
+              right: "0.5rem",
+              width: "1.75rem",
+              height: "1.6875rem",
             }}
           />
         )}
       </View>
 
-      <Text textAlign={"center"} fontSize="xl" className={styles.description}>
+      <Text
+        textAlign="center"
+        fontSize="large"
+        fontFamily="var(--font-toyotaDisplay)"
+      >
         {item.title}
       </Text>
     </Flex>

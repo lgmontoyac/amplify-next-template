@@ -1,4 +1,5 @@
 export const text = {
+  letterSpacing: '-2%',
   color: { value: "{colors.black}" },
   primary: { 
     color: { value: "{colors.black}" } 
@@ -8,6 +9,6 @@ export const text = {
     weight: {
       regular: '400',
       bold: '700',
-    },
+    }
   },
 };

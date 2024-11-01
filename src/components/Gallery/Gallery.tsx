@@ -14,33 +14,34 @@ import "yet-another-react-lightbox/styles.css";
 import styles from "./Gallery.module.scss";
 
 export interface Image {
-  src: string;
-  caption?: string;
+  photoUrl: string;
+  coverText?: string;
 }
 
 export interface GalleryProps {
   height?: number;
-  imageList?: Image[];
+  imageList: { photoUrl: string; coverText?: string }[];
   gap?: number;
 }
 
-const defaultImages: Image[] = [
-  { src: "/images/1.jpg" },
-  { src: "/images/2.png", caption: "Tecnología" },
-  { src: "/images/6.jpg" },
-  { src: "/images/4.jpg", caption: "Potencia" },
-  { src: "/images/5.png" },
-  { src: "/images/6.jpg", caption: "Todo terreno" },
-  { src: "/images/7.jpg" },
-];
-
 export default function Gallery({
   height = 300,
-  imageList = defaultImages,
+  imageList = [],
   gap = 20,
 }: GalleryProps) {
   const [index, setIndex] = useState(-1);
 
+  //function to change photoUrl to src and coverText to caption
+  const formatImageList = (
+    list: Image[]
+  ): { src: string; caption?: string }[] => {
+    return list.map((image) => ({
+      src: image.photoUrl,
+      caption: image.coverText,
+    }));
+  };
+
+  const formattedList = formatImageList(imageList);
   const updateButtonPosition = () => {
     const currentSlide = document.querySelector(
       ".yarl__slide_current img"
@@ -59,23 +60,30 @@ export default function Gallery({
       ) as HTMLElement;
       const toolbar = document.querySelector(".yarl__toolbar") as HTMLElement;
 
+      // Ajuste del cálculo para considerar el zoom aplicado
+      const adjustedWindowWidth = window.innerWidth * 2;
+      const adjustedWindowHeight = window.innerHeight * 2;
+
       if (prevButton && nextButton) {
         prevButton.style.left = `${
-          (window.innerWidth - imageWidth) / 2 + offset
+          (adjustedWindowWidth - imageWidth) / 2 + offset
         }px`;
         nextButton.style.right = `${
-          (window.innerWidth - imageWidth) / 2 + offset
+          (adjustedWindowWidth - imageWidth) / 2 + offset
         }px`;
       }
 
       if (toolbar) {
-        toolbar.style.top = `${(window.innerHeight - imageHeight) / 2}px`;
-        toolbar.style.right = `${(window.innerWidth - imageWidth) / 2}px`;
+        toolbar.style.top = `${(adjustedWindowHeight - imageHeight) / 2}px`;
+        toolbar.style.right = `${(adjustedWindowWidth - imageWidth) / 2}px`;
       }
     }
   };
 
-  const renderImageWithOverlay = (image: Image, imageIndex: number) => (
+  const renderImageWithOverlay = (
+    image: { src: string; caption?: string },
+    imageIndex: number
+  ) => (
     <View
       key={imageIndex}
       position="relative"
@@ -93,6 +101,7 @@ export default function Gallery({
           objectPosition: "50% 50%",
         }}
       />
+      {/*
       <Flex
         position="absolute"
         bottom="10px"
@@ -104,7 +113,7 @@ export default function Gallery({
         <Text color="white" fontSize="xs">
           *Imágenes de referencia
         </Text>
-      </Flex>
+      </Flex> */}
       {image.caption && (
         <Flex
           position="absolute"
@@ -128,11 +137,22 @@ export default function Gallery({
     <View
       style={{
         width: "100%",
-        maxWidth: "2000px",
+        maxWidth: "2400px",
         height: "100%",
         margin: "0 auto",
       }}
     >
+      <View textAlign="center" marginBottom="82px">
+        <Text fontSize="xxxl">Explora la Potencia y Estilo</Text>
+        <Text
+          fontSize="xxxxl"
+          fontWeight="400"
+          lineHeight="xxxxl"
+          marginTop="20px"
+        >
+          Galería Exclusiva del Vehículo
+        </Text>
+      </View>
       <Grid
         templateColumns="repeat(6, 1fr)"
         gap={gap}
@@ -146,7 +166,7 @@ export default function Gallery({
             height: `${height}px`,
           }}
         >
-          {renderImageWithOverlay(imageList[0], 0)}
+          {renderImageWithOverlay(formattedList[0], 0)}
         </View>
 
         <View
@@ -156,7 +176,7 @@ export default function Gallery({
             height: `${height / 2 - gap / 2}px`,
           }}
         >
-          {renderImageWithOverlay(imageList[1], 1)}
+          {renderImageWithOverlay(formattedList[1], 1)}
         </View>
         <View
           style={{
@@ -165,7 +185,7 @@ export default function Gallery({
             height: `${height / 2 - gap / 2}px`,
           }}
         >
-          {renderImageWithOverlay(imageList[2], 2)}
+          {renderImageWithOverlay(formattedList[2], 2)}
         </View>
         <View
           style={{
@@ -174,7 +194,7 @@ export default function Gallery({
             height: `${height / 2 - gap / 2}px`,
           }}
         >
-          {renderImageWithOverlay(imageList[3], 3)}
+          {renderImageWithOverlay(formattedList[3], 3)}
         </View>
 
         <View
@@ -184,7 +204,7 @@ export default function Gallery({
             height: `${height / 2 - gap / 2}px`,
           }}
         >
-          {renderImageWithOverlay(imageList[4], 4)}
+          {renderImageWithOverlay(formattedList[4], 4)}
         </View>
         <View
           style={{
@@ -193,7 +213,7 @@ export default function Gallery({
             height: `${height / 2 - gap / 2}px`,
           }}
         >
-          {renderImageWithOverlay(imageList[5], 5)}
+          {renderImageWithOverlay(formattedList[5], 5)}
         </View>
         <View
           style={{
@@ -202,12 +222,12 @@ export default function Gallery({
             height: `${height / 2 - gap / 2}px`,
           }}
         >
-          {renderImageWithOverlay(imageList[6], 6)}
+          {renderImageWithOverlay(formattedList[6], 6)}
         </View>
       </Grid>
       <Lightbox
         index={index}
-        slides={imageList}
+        slides={formattedList}
         open={index >= 0}
         close={() => setIndex(-1)}
         render={{
