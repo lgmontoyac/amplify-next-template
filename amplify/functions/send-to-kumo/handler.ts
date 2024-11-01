@@ -154,7 +154,7 @@ export const handler: Schema["sendToKumo"]["functionHandler"] = async (event) =>
                 {
                     attributes: {
                         type: 'lead',
-                        referenceId: "a".toString()
+                        referenceId: (Date.now() / 1000).toString()
                     },
                     LastName: args.lastName,
                     FirstName: args.firstName,
