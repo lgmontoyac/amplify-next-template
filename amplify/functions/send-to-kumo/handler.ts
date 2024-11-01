@@ -142,7 +142,7 @@ export const handler: Schema["sendToKumo"]["functionHandler"] = async (event) =>
 
     if (token) {
 
-        const args = event.arguments;
+        const args = JSON.parse(JSON.stringify(event));
         console.log(args);
 
         const documentType = processDocumentType(args.identificationType!);
