@@ -211,7 +211,7 @@ export const handler: Schema["sendToKumo"]["functionHandler"] = async (event) =>
                 kumoSuccessfulSync: true,
                 kumoResponse: response.data
             }
-            const { data2, errors } = await client.models.KumoQuotation.update(todo);
+            const { data, errors } = await client.models.KumoQuotation.update(updatedQuotation);
 
 
         } catch (error) {
