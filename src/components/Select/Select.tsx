@@ -28,7 +28,6 @@ export function Select({ options, onSelect, selectedOption }: SelectProps) {
   // Calculate the max width of the options
   useEffect(() => {
     if (selectRef.current) {
-      // Create a temporary span to measure the width of each option
       const span = document.createElement("span");
       document.body.appendChild(span);
       span.style.visibility = "hidden";
@@ -53,7 +52,7 @@ export function Select({ options, onSelect, selectedOption }: SelectProps) {
       fontFamily: "var(--font-toyotaDisplay)",
       fontSize: "var(--amplify-font-sizes-xxl)",
       lineHeight: "var(--amplify-line-heights-large)",
-      width: maxWidth, // Set dynamic width
+      width: maxWidth,
       display: "inline-flex",
       backgroundColor: "white",
       border: "none",
@@ -66,6 +65,12 @@ export function Select({ options, onSelect, selectedOption }: SelectProps) {
       fontFamily: "var(--font-toyotaDisplay)",
       fontSize: "var(--amplify-font-sizes-xxl)",
       lineHeight: "var(--amplify-line-heights-large)",
+      maxHeight: "none", // Desactiva el límite de altura
+      overflowY: "visible", // Asegúrate de que se muestren todas las opciones
+    }),
+    menuList: (provided: any) => ({
+      ...provided,
+      maxHeight: "none",
     }),
     option: (provided: any, state: any) => ({
       ...provided,

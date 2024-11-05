@@ -54,10 +54,13 @@ export default function ListContainer({ vehicles }: { vehicles: Vehicle[] }) {
   };
 
   return (
-    <View
+    <Flex
+      direction="column"
+      justifyContent="space-between"
+      height="100vh"
       paddingTop="80px"
       paddingBottom="115px"
-      maxWidth="2400px"
+      maxWidth="2000px"
       margin="0 auto"
     >
       <View marginBottom="80px">
@@ -70,7 +73,7 @@ export default function ListContainer({ vehicles }: { vehicles: Vehicle[] }) {
         </View>
         <View textAlign="center" marginTop="75px">
           <Text fontSize="xxl">Bienvenido</Text>
-          <Text fontSize="xxxl" marginTop="4px">
+          <Text fontSize="xxxxl" marginTop="4px">
             ¿Qué vehículo estás buscando?
           </Text>
           <Flex marginTop="58px" gap="15px" justifyContent="center">
@@ -83,13 +86,13 @@ export default function ListContainer({ vehicles }: { vehicles: Vehicle[] }) {
         </View>
         <CarList carList={filteredVehicles} />
       </View>
-      <Text fontSize="xl">
+      <Text fontSize="xl" paddingBottom="80px" textAlign="center">
         *Precio sugerido al público por Automotores Toyota Colombia S.A.S a
         nivel nacional, vigente desde el {firstDay} hasta el {lastDay}. Estos
         valores incluyen impuestos aplicables de acuerdo con el tipo de vehículo
         y el mantenimiento planeado Toyota. Los precios pueden variar según el
         concesionario de la Red Autorizada escogido.
       </Text>
-    </View>
+    </Flex>
   );
 }

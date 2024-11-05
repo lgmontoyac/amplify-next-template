@@ -14,6 +14,7 @@ import { Select } from "@/components/Select/Select";
 import { useRouter } from "next/navigation";
 import { ColorOption, Vehicle, VehicleModel } from "@/types";
 import { Option } from "@/components/CategorySearchBar/CategorySearchBar";
+import { generateSlug } from "@/utils/generateSlug";
 
 export default function DetailContainer({
   vehicle,
@@ -65,10 +66,10 @@ export default function DetailContainer({
         left="0"
         width="100%"
         height="100%"
-        maxHeight="800px"
+        maxHeight="820px"
         style={{ zIndex: -1 }}
       />
-      <View maxWidth="2400px" margin="0 auto" position="relative">
+      <View maxWidth="2000px" margin="0 auto" position="relative">
         <Button
           position="absolute"
           left="0"
@@ -93,7 +94,7 @@ export default function DetailContainer({
           <Image src="/assets/images/site_logo.svg" alt="Toyota" />
           <View textAlign="center">
             <Text fontSize="xxl">Explora tu</Text>
-            <Text fontSize="xxxl" marginTop="4px">
+            <Text fontSize="xxxxl" marginTop="4px">
               {vehicle.name}
             </Text>
             <Flex marginTop="48px" marginBottom="60px" gap="15px">
@@ -104,7 +105,7 @@ export default function DetailContainer({
                     router.push(`/detail/${selected?.value}`);
                   }}
                   selectedOption={vehicleList.find(
-                    (elem) => elem.value === vehicle.id
+                    (elem) => elem.value === generateSlug(vehicle.name)
                   )}
                 />
               )}
@@ -159,12 +160,6 @@ export default function DetailContainer({
                 imageList={vehicle.galleryPictures.items as any}
               />
             )}
-          <ModalWithStepper
-            isOpen={isModalOpenStepper}
-            onClose={closeModal}
-            onRedirect={handleRedirect}
-            description="Land Cruiser Prado First Edition"
-          />
         </Flex>
       </View>
       <ModalWithStepper
@@ -172,6 +167,8 @@ export default function DetailContainer({
         onClose={closeModal}
         onRedirect={handleRedirect}
         description={vehicle.name}
+        version={selectedModel?.kumoCode || ""}
+        model={vehicle?.kumoCode || ""}
       />
     </View>
   );

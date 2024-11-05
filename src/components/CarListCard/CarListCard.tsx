@@ -4,6 +4,8 @@ import { Flex, Image, Link, Text, View } from "@aws-amplify/ui-react";
 import styles from "./CarListCard.module.scss";
 import { getUrl } from "aws-amplify/storage";
 import { useEffect, useState } from "react";
+import { fetchImageUrl } from "@/services/filesService";
+import { generateSlug } from "@/utils/generateSlug";
 
 const backgroundColorsList = [
   "#29363A",
@@ -33,7 +35,11 @@ export function CarListCard({ index, car }: CarListCardProps) {
   };
 
   return (
-    <Link href={`/detail/${car.id}`} width="100%" display="block">
+    <Link
+      href={`/detail/${generateSlug(car.name)}`}
+      width="100%"
+      display="block"
+    >
       <Flex
         className={styles.card}
         style={{ backgroundColor }}
@@ -46,18 +52,18 @@ export function CarListCard({ index, car }: CarListCardProps) {
           <Text color="white" fontSize="xl">
             {car.segment}
           </Text>
-          <Text color="white" fontSize="xxxxl">
+          <Text color="white" fontSize="hyperLarge">
             {car.name}
           </Text>
         </View>
         <View className={styles.image}>
-          <Image src={car.photoUrl} alt={car.name} />
+          <Image src={fetchImageUrl(car.previewImageURL)} alt={car.name} />
           <Text
             position="absolute"
             bottom="20px"
             className="image-text"
             color="white"
-            fontSize="large"
+            fontSize="medium"
           >
             *Imágenes de referencia
           </Text>
@@ -77,10 +83,16 @@ export function CarListCard({ index, car }: CarListCardProps) {
               ? getLowerPrice()?.toLocaleString("es-CO", {
                   style: "currency",
                   currency: "COP",
+                  minimumFractionDigits: 0,
+                  maximumFractionDigits: 0,
                 })
               : "Sin precio"}
           </Text>
-          <Text color="white" fontSize="large">
+          <Text
+            color="white"
+            fontSize="medium"
+            fontFamily="var(--font-toyotaDisplay)"
+          >
             *Precio sugerido al público
           </Text>
           <Text
@@ -90,7 +102,7 @@ export function CarListCard({ index, car }: CarListCardProps) {
             padding="5px 20px"
             display="inline-block"
             borderRadius="small"
-            fontSize="xl"
+            fontSize="large"
           >
             {car.fuelType}
           </Text>

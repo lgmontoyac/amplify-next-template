@@ -7,18 +7,22 @@ import "@/app/app.css";
 
 import Providers from "./providers";
 
-import { Amplify } from "aws-amplify";
-import outputs from "../../amplify_outputs.json";
+import { setCacheVehicles } from "@/services/storeVehicles";
 
-Amplify.configure(outputs, {
-  ssr: true,
-});
-
+export async function generateViewport({}) {
+  return {
+    initialScale: 1,
+    width: "device-width",
+    userScalable: false,
+  };
+}
 export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  setCacheVehicles();
+
   return (
     <html
       lang="en"

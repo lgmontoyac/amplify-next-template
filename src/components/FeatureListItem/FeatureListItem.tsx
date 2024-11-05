@@ -59,7 +59,7 @@ export function FeatureListItem({ item }: FeatureListItemProps) {
 
       <Text
         textAlign="center"
-        fontSize="large"
+        fontSize="medium"
         fontFamily="var(--font-toyotaDisplay)"
       >
         {item.title}

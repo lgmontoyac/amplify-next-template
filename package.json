@@ -30,8 +30,10 @@
     "react-hook-form": "^7.53.1",
     "react-qr-code": "^2.0.15",
     "react-select": "^5.8.1",
+    "react-simple-keyboard": "^3.8.17",
     "sass": "^1.80.3",
     "serwist": "^9.0.9",
+    "simple-keyboard-layouts": "^3.4.38",
     "uuid": "^10.0.0",
     "yet-another-react-lightbox": "^3.21.6"
   },

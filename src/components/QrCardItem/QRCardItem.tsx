@@ -14,7 +14,7 @@ export function QRCardItem({ item }: QRCardItemProps) {
   return (
     <View
       backgroundColor="#F6F6F6"
-      padding="70px"
+      padding="60px"
       maxWidth="61.25rem"
       margin="1.25rem auto"
     >
@@ -28,18 +28,19 @@ export function QRCardItem({ item }: QRCardItemProps) {
           <Text
             as="h3"
             fontWeight="500"
-            fontSize="xxxl"
-            lineHeight="xxxl"
+            fontSize="xxl"
+            lineHeight="xxl"
             marginBottom="20px"
             color="#000000"
           >
             {item.title}
           </Text>
           <Text
-            fontSize="xl"
+            fontSize="large"
             lineHeight="large"
             color="#000000"
             fontFamily="var(--font-toyotaDisplay)"
+            fontWeight="300"
           >
             {item.description}
           </Text>

@@ -2,6 +2,7 @@ export interface Vehicle {
   priority: number;
   datasheetURL: string;
   name: string;
+  kumoCode: string;
   segment: string;
   id: string;
   type: string;
@@ -14,7 +15,6 @@ export interface Vehicle {
   category: string;
   logoUrl: string;
   logoImageURL?: string;
-  photoUrl?: string;
   colors: {
     items: ColorOption[];
   };
@@ -47,14 +47,11 @@ export interface ColorOption {
   id: string;
   imagePath: string;
   name: string;
-  photoUrl?: string;
-  iconUrl?: string;
 }
 
 export interface GalleryPicture {
   id: string;
   imagePath: string;
-  photoUrl?: string;
   coverText?: string;
 }
 
@@ -63,6 +60,7 @@ export interface VehicleModel {
   name: string;
   price: string;
   shortName: string;
+  kumoCode: string;
   hasAntilockBrakeSystem: boolean;
   hasElectronicStabilityControl: boolean;
   hasFrontCollisionAlert: boolean;

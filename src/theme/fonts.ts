@@ -10,7 +10,7 @@ export const toyotaDisplay = localFont({
     },
     {
       path:  "../../public/fonts/ToyotaDisplay_Rg.ttf",
-      weight: "400",
+      weight: "300",
       style: "normal",
     },
     {

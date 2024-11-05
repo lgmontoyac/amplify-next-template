@@ -1,5 +1,8 @@
 import { Schema } from '../../data/resource';
 import axios, { AxiosError } from 'axios';
+import { generateClient } from 'aws-amplify/data';
+
+const client = generateClient<Schema>();
 
 export const handler: Schema["sendToKumo"]["functionHandler"] = async (event) => {
 
@@ -71,7 +74,7 @@ export const handler: Schema["sendToKumo"]["functionHandler"] = async (event) =>
                 response = "11";
                 break;
             default:
-                response = "";
+                response = ""
                 break;
         }
         return response;
@@ -97,7 +100,9 @@ export const handler: Schema["sendToKumo"]["functionHandler"] = async (event) =>
             { dealerSpotCode: "20", dealerCode: "6" },
             { dealerSpotCode: "21", dealerCode: "7" },
             { dealerSpotCode: "22", dealerCode: "7" },
+            { dealerSpotCode: "23", dealerCode: "8" },
             { dealerSpotCode: "24", dealerCode: "8" },
+            { dealerSpotCode: "25", dealerCode: "8" },
             { dealerSpotCode: "26", dealerCode: "9" },
             { dealerSpotCode: "70", dealerCode: "8" },
             { dealerSpotCode: "27", dealerCode: "10" },
@@ -138,12 +143,26 @@ export const handler: Schema["sendToKumo"]["functionHandler"] = async (event) =>
         return response;
     }
 
+    const args = event.arguments;
+
+    let kumoQuotationData = {
+        ...args,
+        kumoSuccessfulSync: false,
+        kumoResponse: null,
+    };
+
+    const { errors, data } = await client.models.KumoQuotation.create(kumoQuotationData);
+    if(!errors) {
+        console.log(JSON.stringify(errors));
+        return {
+            success: false,
+            message: 'Error saving register in database'
+        };
+    }
+
     const token = await getAccessToken();
 
     if (token) {
-
-        const args = JSON.parse(JSON.stringify(event));
-        console.log(args);
 
         const documentType = processDocumentType(args.identificationType!);
 
@@ -165,12 +184,12 @@ export const handler: Schema["sendToKumo"]["functionHandler"] = async (event) =>
                     MobilePhone: args.phoneNumber,
                     ATC_Modelo__c: args.vehicleModel,
                     ATC_Version__c: args.vehicleVersion,
-                    ATC_CiudadLista__c: "08001",
+                    ATC_CiudadLista__c: args.city,
                     ATC_ConcesionarioLista__c: dealerCode,
-                    ATC_VitrinaLista__c: args.dealer,
+                    ATC_VitrinaLista__c: args.dealerCode,
                     ATC_Autorizacion_tratamiento_de_datos__c: args.dataAuthorization ? "Si" : "No",
                     ATC_AceptacionTerminosyCondiciones__c: args.termsAndConditions,
-                    LeadSource: "Web to lead ATC"
+                    LeadSource: "Totem"
                 }
             ]
         };
@@ -185,30 +204,18 @@ export const handler: Schema["sendToKumo"]["functionHandler"] = async (event) =>
                 }
             });
             console.log('Respuesta de la API:', response.data);
-            return {
-                success: true,
-                message: 'OK'
-            };
+
         } catch (error) {
             if (axios.isAxiosError(error)) {
                 console.error('Error en la solicitud:', error.response?.data || error.message);
-                return {
-                    success: false,
-                    message: 'Error requesting Kumo API: ' + error.message
-                };
             } else {
                 const errorMessage = (error as Error).message;
                 console.error('Error en la solicitud:', errorMessage);
-                return {
-                    success: false,
-                    message: 'Error requesting Kumo API: ' + errorMessage
-                };
             }
         }
-    } else {
-        return {
-            success: false,
-            message: "Error authenticating in Kumo"
-        };
-    }
+    } 
+    return {
+        success: true,
+        message: 'OK'
+    };
 };

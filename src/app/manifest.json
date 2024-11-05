@@ -1,22 +1,36 @@
 {
-  "name": "My Awesome PWA app",
-  "short_name": "PWA App",
-  "icons": [
-    {
-      "src": "/icons/android-chrome-192x192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "maskable"
-    },
-    {
-      "src": "/icons/icon-512x512.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    }
-  ],
-  "theme_color": "#FFFFFF",
-  "background_color": "#FFFFFF",
-  "start_url": "/",
-  "display": "standalone",
-  "orientation": "portrait"
-}
+    "theme_color": "#ffffff",
+    "background_color": "#2EC6FE",
+    "icons": [
+      {
+        "purpose": "maskable",
+        "sizes": "512x512",
+        "src": "icon512_maskable.png",
+        "type": "image/png"
+      },
+      {
+        "purpose": "any",
+        "sizes": "512x512",
+        "src": "icon512_rounded.png",
+        "type": "image/png"
+      }
+    ],
+    "orientation": "portrait",
+    "display": "fullscreen",
+    "dir": "auto",
+    "lang": "es-419",
+    "name": "Toyota Totem",
+    "short_name": "toyota_totem",
+    "start_url": "/",
+    "scope": "/",
+    "id": "/",
+    "screenshots": [
+      {
+        "src": "screenshot-wide.png",
+        "sizes": "1280x720",
+        "type": "image/png",
+        "form_factor": "wide"
+      }
+    ]
+  }
+  

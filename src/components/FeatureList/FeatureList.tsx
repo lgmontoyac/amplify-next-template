@@ -60,7 +60,7 @@ export function FeatureList({ details }: FeatureListProps) {
     },
   ];
   return (
-    <View maxWidth="2400px">
+    <View maxWidth="2000px">
       <Flex justifyContent="space-between" gap="20px">
         {featureList.map((item, index) => (
           <FeatureListItem key={index} item={item} />

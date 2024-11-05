@@ -12,6 +12,7 @@ const schema = a.schema({
     .model({
       id: a.id().required(),
       name: a.string().required(),
+      kumoCode: a.string(),
       segment: a.string().required(),
       fuelType: a.string().required(),
       datasheetURL: a.string(),
@@ -36,6 +37,7 @@ const schema = a.schema({
       vehicleId: a.id().required(),
       vehicle: a.belongsTo("Vehicle", "vehicleId"),
       name: a.string().required(),
+      kumoCode: a.string(),
       price: a.integer(),
       shortName: a.string(),
       hasAntilockBrakeSystem: a.boolean(),
@@ -76,15 +78,37 @@ const schema = a.schema({
     .identifier(["id"])
     .authorization((allow) => [allow.publicApiKey()])
   ,
+  KumoQuotation: a
+    .model({
+      id: a.id().required(),
+      lastName: a.string(),
+      firstName: a.string(),
+      identificationNumber: a.string(),
+      identificationType: a.string(),
+      email: a.email(),
+      phoneNumber: a.string(),
+      vehicleModel: a.string(),
+      vehicleVersion: a.string(),
+      city: a.string(),
+      dealer: a.string(),
+      dealerCode: a.string(),
+      dataAuthorization: a.boolean(),
+      termsAndConditions: a.boolean(),
+      kumoSuccessfulSync: a.boolean(),
+      kumoResponse: a.string(),
+    })
+    .identifier(["id"])
+    .authorization((allow) => [allow.authenticated()])
+  ,
   sendToKumo: a
-    .query()
+    .mutation()
     .arguments({
       lastName: a.string(),
       firstName: a.string(),
       identificationNumber: a.string(),
       identificationType: a.string(),
       email: a.email(),
-      phoneNumber: a.phone(),
+      phoneNumber: a.string(),
       vehicleModel: a.string(),
       vehicleVersion: a.string(),
       city: a.string(),

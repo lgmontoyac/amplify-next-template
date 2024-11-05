@@ -10,6 +10,7 @@ export const getVehicles = async () => {
         items {
           id
           name
+          kumoCode
           segment
           fuelType
           datasheetURL
@@ -26,12 +27,14 @@ export const getVehicles = async () => {
               id
               imagePath
               coverText
+              priority
             }
           }
           models {
             items {
               id
               name
+              kumoCode
               price
               shortName
               hasAntilockBrakeSystem

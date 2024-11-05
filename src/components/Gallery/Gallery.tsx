@@ -1,26 +1,20 @@
-import {
-  Image,
-  View,
-  Grid,
-  Flex,
-  Text,
-  Icon,
-  Button,
-} from "@aws-amplify/ui-react";
+import { Image, View, Grid, Flex, Text } from "@aws-amplify/ui-react";
 import * as React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 import styles from "./Gallery.module.scss";
+import { fetchImageUrl } from "@/services/filesService";
 
 export interface Image {
-  photoUrl: string;
+  imagePath: string;
   coverText?: string;
+  priority: number;
 }
 
 export interface GalleryProps {
   height?: number;
-  imageList: { photoUrl: string; coverText?: string }[];
+  imageList: { imagePath: string; coverText?: string; priority: number }[];
   gap?: number;
 }
 
@@ -35,13 +29,17 @@ export default function Gallery({
   const formatImageList = (
     list: Image[]
   ): { src: string; caption?: string }[] => {
-    return list.map((image) => ({
-      src: image.photoUrl,
-      caption: image.coverText,
-    }));
+    return list
+      .map((image) => ({
+        src: fetchImageUrl(image.imagePath),
+        caption: image.coverText,
+        priority: image.priority,
+      }))
+      .sort((a, b) => a.priority - b.priority);
   };
 
   const formattedList = formatImageList(imageList);
+
   const updateButtonPosition = () => {
     const currentSlide = document.querySelector(
       ".yarl__slide_current img"
@@ -60,22 +58,18 @@ export default function Gallery({
       ) as HTMLElement;
       const toolbar = document.querySelector(".yarl__toolbar") as HTMLElement;
 
-      // Ajuste del cálculo para considerar el zoom aplicado
-      const adjustedWindowWidth = window.innerWidth * 2;
-      const adjustedWindowHeight = window.innerHeight * 2;
-
       if (prevButton && nextButton) {
         prevButton.style.left = `${
-          (adjustedWindowWidth - imageWidth) / 2 + offset
+          (window.innerWidth - imageWidth) / 2 + offset
         }px`;
         nextButton.style.right = `${
-          (adjustedWindowWidth - imageWidth) / 2 + offset
+          (window.innerWidth - imageWidth) / 2 + offset
         }px`;
       }
 
       if (toolbar) {
-        toolbar.style.top = `${(adjustedWindowHeight - imageHeight) / 2}px`;
-        toolbar.style.right = `${(adjustedWindowWidth - imageWidth) / 2}px`;
+        toolbar.style.top = `${(window.innerHeight - imageHeight) / 2}px`;
+        toolbar.style.right = `${(window.innerWidth - imageWidth) / 2}px`;
       }
     }
   };
@@ -101,19 +95,6 @@ export default function Gallery({
           objectPosition: "50% 50%",
         }}
       />
-      {/*
-      <Flex
-        position="absolute"
-        bottom="10px"
-        left="0"
-        right="0"
-        justifyContent="center"
-        alignItems="center"
-      >
-        <Text color="white" fontSize="xs">
-          *Imágenes de referencia
-        </Text>
-      </Flex> */}
       {image.caption && (
         <Flex
           position="absolute"
@@ -137,19 +118,16 @@ export default function Gallery({
     <View
       style={{
         width: "100%",
-        maxWidth: "2400px",
+        maxWidth: "2000px",
         height: "100%",
         margin: "0 auto",
       }}
     >
       <View textAlign="center" marginBottom="82px">
-        <Text fontSize="xxxl">Explora la Potencia y Estilo</Text>
-        <Text
-          fontSize="xxxxl"
-          fontWeight="400"
-          lineHeight="xxxxl"
-          marginTop="20px"
-        >
+        <Text fontSize="xxl" fontWeight="300">
+          Explora la Potencia y Estilo
+        </Text>
+        <Text fontSize="xxxxl" marginTop="12px" fontWeight="300">
           Galería Exclusiva del Vehículo
         </Text>
       </View>
@@ -239,6 +217,7 @@ export default function Gallery({
           iconNext: () => <NavButton direction="next" />,
         }}
         className={styles.lightbox}
+        controller={{ closeOnPullDown: true, closeOnBackdropClick: true }}
       />
     </View>
   );

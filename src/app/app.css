@@ -52,8 +52,39 @@ button {
   box-shadow: none;
 }
 
-body {
-	zoom: 50%;
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
+@media (max-width: 1800px) {
+
+	body {
+		zoom: 60%;
+		-webkit-font-smoothing: antialiased;
+		text-rendering: optimizeLegibility;
+	}
+}
+
+@media (max-width: 2000px) {
+
+	body {
+		zoom: 80%;
+		-webkit-font-smoothing: antialiased;
+		text-rendering: optimizeLegibility;
+	}
+}
+
+.simple-keyboard.hg-theme-default {
+	.hg-button{
+		height: 100px;
+		span {
+			font-size: var(--amplify-font-sizes-xxxl);
+			color: black;
+		}
+	}
+  }
+  .hidden {
+	display:none;
+}
+
+@media (max-width: 768px) {
+	.simple-keyboard.hg-theme-default {
+		display: none;
+	}
 }

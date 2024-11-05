@@ -15,9 +15,16 @@
   border-radius: 0.5rem;
   width: 100%;
   max-width: 125.1875rem;
-  height: 90%;
-  max-height: 120.4375rem;
   animation: slideUp 0.3s ease;
+
+  @media (max-width: 2000px) {
+  
+    & {
+      zoom: 30%;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+  }
 }
   
 .title {

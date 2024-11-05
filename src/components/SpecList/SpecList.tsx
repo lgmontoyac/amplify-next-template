@@ -39,7 +39,7 @@ export function SpecList({ details }: SpecListProps) {
         src: "/assets/icons/icon_puertas.svg",
       },
       title: "Puertas",
-      description: `De ${details.doors} puertas, con portón trasero`,
+      description: `${details.doors} puertas`,
     },
     {
       id: 4,
@@ -65,7 +65,7 @@ export function SpecList({ details }: SpecListProps) {
       <Text
         fontSize="xxxxl"
         lineHeight="xxxxl"
-        fontWeight="400"
+        fontWeight="300"
         marginBottom="45px"
         textAlign={"center"}
       >

@@ -21,7 +21,13 @@ interface StepperProps {
   isStepValid: boolean[];
 }
 
-export default function Stepper({ steps, onStepChange, onStepSendData, onStepRedirect, isStepValid }: StepperProps) {
+export default function Stepper({
+  steps,
+  onStepChange,
+  onStepSendData,
+  onStepRedirect,
+  isStepValid,
+}: StepperProps) {
   const [activeStep, setActiveStep] = useState(0);
 
   const handleNext = () => {
@@ -51,9 +57,7 @@ export default function Stepper({ steps, onStepChange, onStepSendData, onStepRed
               <StepContainer>
                 <div style={{ textAlign: "center" }}>
                   {step.title && (
-                    <div className={styles.title}>
-                      {step.title}
-                    </div>
+                    <div className={styles.title}>{step.title}</div>
                   )}
                 </div>
               </StepContainer>
@@ -64,26 +68,28 @@ export default function Stepper({ steps, onStepChange, onStepSendData, onStepRed
       <div className={styles.stepContent}>
         {steps[activeStep].content}
         <div className={styles.buttonContainer}>
-          <Button
-            onClick={handleBack}
-            disabled={activeStep === 0}
-            marginTop="5rem"
-            marginBottom="5rem"
-            border="none"
-            backgroundColor="transparent"
-            marginLeft="3rem"
-          >
-          {activeStep != 0 && (
-            <Image
-              textAlign="center"
-              src="/assets/icons/icon_arrow.svg"
-              alt="Icon Arrow"
-              loading="lazy"
-              className={styles.arrowImage}
-            />
+          {activeStep !== steps.length - 1 && (
+            <Button
+              onClick={handleBack}
+              disabled={activeStep === 0}
+              marginTop="5rem"
+              marginBottom="5rem"
+              border="none"
+              backgroundColor="transparent"
+              marginLeft="3rem"
+            >
+              {activeStep != 0 && (
+                <Image
+                  textAlign="center"
+                  src="/assets/icons/icon_arrow.svg"
+                  alt="Icon Arrow"
+                  loading="lazy"
+                  className={styles.arrowImage}
+                />
+              )}
+            </Button>
           )}
-          </Button>
-          <Button 
+          <Button
             variation="primary"
             display="inline-flex"
             size="large"
@@ -104,7 +110,11 @@ export default function Stepper({ steps, onStepChange, onStepSendData, onStepRed
               }
             }}
           >
-            {activeStep === steps.length - 2 ? 'Enviar' : activeStep === steps.length - 1 ? 'Ver más vehículos' : 'Siguiente'}
+            {activeStep === steps.length - 2
+              ? "Enviar"
+              : activeStep === steps.length - 1
+              ? "Ver más vehículos"
+              : "Siguiente"}
           </Button>
         </div>
       </div>

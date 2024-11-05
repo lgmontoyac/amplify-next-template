@@ -1,6 +1,6 @@
 
 
-import { getUrl } from "aws-amplify/storage";
+/*import { getUrl } from "aws-amplify/storage";
 
 export const fetchImageUrl = async (imgPath: string) => {
     if (!imgPath) return;
@@ -13,3 +13,10 @@ export const fetchImageUrl = async (imgPath: string) => {
       console.error("Error fetching image URL:", error);
     }
   };
+  */
+
+
+export const fetchImageUrl = (imgPath: string): string => {
+    if (!imgPath) return "";
+    return process.env.NEXT_PUBLIC_S3_URL + '/images/' + imgPath
+};

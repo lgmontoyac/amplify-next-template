@@ -29,7 +29,7 @@ export function CTASection({ item }: CTASectionProps) {
           color="#000000"
           padding="0.625rem 1.25rem"
           borderRadius="0.5rem"
-          fontWeight="400"
+          fontWeight="300"
           fontSize="xxxxl"
           lineHeight="xxxxl"
         >

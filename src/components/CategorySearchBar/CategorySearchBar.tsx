@@ -20,7 +20,7 @@ const customStyles = {
     fontFamily: "var(--font-toyotaDisplay)",
     fontSize: "var(--amplify-font-sizes-xxl)",
     lineHeight: "var(--amplify-line-heights-large)",
-    width: "auto",
+    width: "100%", // Ajustar el ancho al 100% para que ocupe el espacio disponible
     minWidth: "444px",
     display: "inline-flex",
     backgroundColor: "transparent",
@@ -34,6 +34,12 @@ const customStyles = {
     fontFamily: "var(--font-toyotaDisplay)",
     fontSize: "var(--amplify-font-sizes-xxl)",
     lineHeight: "var(--amplify-line-heights-large)",
+    maxHeight: "none", // Desactivar el límite de altura
+    overflowY: "visible", // Permitir que todas las opciones se muestren
+  }),
+  menuList: (provided: any) => ({
+    ...provided,
+    maxHeight: "none",
   }),
   option: (provided: any, state: any) => ({
     ...provided,
@@ -65,10 +71,16 @@ export function CategorySearchBar({
 }: CategorySearchBarProps) {
   const [defaultSelectedCategory, setDefaultSelectedCategory] =
     useState<Option | null>(selectedCategory || null);
+  const [isOpen, setIsOpen] = useState(false); // Estado para controlar la apertura del menú
 
   const onChangeHandler = (option: Option | null) => {
     setDefaultSelectedCategory(option);
     onSearch(option);
+  };
+
+  // Función para manejar el toggle del menú
+  const toggleMenu = () => {
+    setIsOpen((prev) => !prev);
   };
 
   return (
@@ -77,9 +89,15 @@ export function CategorySearchBar({
         options={categoryList}
         value={defaultSelectedCategory}
         onChange={(option) => onChangeHandler(option as Option)}
-        components={{ IndicatorSeparator: null }}
+        components={{
+          IndicatorSeparator: null,
+        }}
         backspaceRemovesValue={false}
         styles={customStyles}
+        menuIsOpen={isOpen} // Controlar el estado de apertura del menú
+        onMenuOpen={() => setIsOpen(true)} // Abrir el menú
+        onMenuClose={() => setIsOpen(false)} // Cerrar el
+        isSearchable={false}
       />
     </View>
   );
