@@ -11,11 +11,11 @@ const backend = defineBackend({
 });
 
 // Access the S3 bucket
-const s3Bucket = backend.storage.resources.bucket;
+// const s3Bucket = backend.storage.resources.bucket;
 
-s3Bucket.addToResourcePolicy(new iam.PolicyStatement({
-  effect: iam.Effect.ALLOW,
-  principals: [new iam.ArnPrincipal('*')], // Allows any principal
-  actions: ['s3:GetObject'], // Action to allow
-  resources: [`arn:aws:s3:::${s3Bucket.bucketName}/*`], // Resource to apply the policy
-}));
+// s3Bucket.addToResourcePolicy(new iam.PolicyStatement({
+//   effect: iam.Effect.ALLOW,
+//   principals: [new iam.ArnPrincipal('*')], // Allows any principal
+//   actions: ['s3:GetObject'], // Action to allow
+//   resources: [`arn:aws:s3:::${s3Bucket.bucketName}/*`], // Resource to apply the policy
+// }));
