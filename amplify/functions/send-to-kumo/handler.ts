@@ -2,7 +2,7 @@ import { Schema } from '../../data/resource';
 import axios, { AxiosError } from 'axios';
 import { generateClient } from 'aws-amplify/data';
 import { Amplify } from "aws-amplify";
-import outputs from "../../../amplify_outputs.json";
+import outputs from "./amplify_outputs.json";
 
 Amplify.configure(outputs);
 const client = generateClient<Schema>();
