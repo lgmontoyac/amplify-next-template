@@ -160,6 +160,8 @@ export const handler: Schema["sendToKumo"]["functionHandler"] = async (event) =>
         };
     }
 
+    console.log(data);
+
     const token = await getAccessToken();
 
     if (token) {
@@ -204,6 +206,13 @@ export const handler: Schema["sendToKumo"]["functionHandler"] = async (event) =>
                 }
             });
             console.log('Respuesta de la API:', response.data);
+            let updatedQuotation = {
+                id: data.id,
+                kumoSuccessfulSync: true,
+                kumoResponse: response.data
+            }
+            const { data2, errors } = await client.models.KumoQuotation.update(todo);
+
 
         } catch (error) {
             if (axios.isAxiosError(error)) {
