@@ -206,12 +206,12 @@ export const handler: Schema["sendToKumo"]["functionHandler"] = async (event) =>
                 }
             });
             console.log('Respuesta de la API:', response.data);
-            let updatedQuotation = {
+            let kumoQuotationUpdatedData = {
                 id: data.id,
                 kumoSuccessfulSync: true,
-                kumoResponse: response.data
-            }
-            const { data, errors } = await client.models.KumoQuotation.update(updatedQuotation);
+                kumoResponse: JSON.stringify(response.data),
+            };
+            const response2 = await client.models.KumoQuotation.update(kumoQuotationUpdatedData);
 
 
         } catch (error) {
