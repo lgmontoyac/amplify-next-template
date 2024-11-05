@@ -152,7 +152,7 @@ export const handler: Schema["sendToKumo"]["functionHandler"] = async (event) =>
     };
 
     const { errors, data } = await client.models.KumoQuotation.create(kumoQuotationData);
-    if(!errors) {
+    if(!data) {
         console.log(JSON.stringify(errors));
         return {
             success: false,
@@ -207,7 +207,7 @@ export const handler: Schema["sendToKumo"]["functionHandler"] = async (event) =>
             });
             console.log('Respuesta de la API:', response.data);
             let kumoQuotationUpdatedData = {
-                id: data.id,
+                id: data.id!,
                 kumoSuccessfulSync: true,
                 kumoResponse: JSON.stringify(response.data),
             };
